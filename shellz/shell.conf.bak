@@ -1,0 +1,11 @@
+#!/bin/bash
+#used in automate.sh so notice cd in that file
+
+usrFiles="/cc/files"
+TIMEFORMAT='%E'
+errorLogsPath="/cc/logs/errors.log";
+phpPath="/var/www/localhost/htdocs/"
+dateCommand="/bin/date '+%Y-%m-%d %H:%M:%S'"
+
+declare -i defaultMaxTime
+defaultMaxTime=1

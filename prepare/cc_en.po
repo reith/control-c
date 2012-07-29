@@ -1,0 +1,22 @@
+# English translations for PACKAGE package.
+# Copyright (C) 2011 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#  <reith@localhost.localdomain>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-10-30 16:36+0330\n"
+"PO-Revision-Date: 2011-10-30 16:37+0330\n"
+"Last-Translator:  <reith@localhost.localdomain>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../style/header_div.php:13
+msgid "signin"
+msgstr "signin"

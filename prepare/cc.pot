@@ -1,0 +1,683 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ^C 1.0\n"
+"Report-Msgid-Bugs-To: Ameretat.Reith@gmail.com\n"
+"POT-Creation-Date: 2012-07-27 16:16+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../index.php:21 ../index.php:43
+msgid "Sorry, Communication with server faileds."
+msgstr ""
+
+#: ../index.php:46 ../index.php:68
+msgid "Please wait..."
+msgstr ""
+
+#: ../layout/header_div.php:14 ../layout/header_div.php:13
+msgid "Sign out"
+msgstr ""
+
+#: ../layout/header_div.php:16 ../forms/common/signin.php:15
+#: ../forms/common/signin.php:31 ../layout/header_div.php:15
+#: ../forms/common/signin.php:14 ../forms/common/signin.php:30
+msgid "Login"
+msgstr ""
+
+#: ../layout/header_div.php:16 ../layout/header_div.php:15
+msgid "Register"
+msgstr ""
+
+#: ../layout/header_div.php:32 ../layout/header_div.php:31
+msgid "Server time"
+msgstr ""
+
+#: ../layout/left-menu.php:21
+msgid "Online Compiler"
+msgstr ""
+
+#: ../layout/left-menu.php:24
+msgid "Exercises"
+msgstr ""
+
+#: ../layout/left-menu.php:25
+msgid "Courses"
+msgstr ""
+
+#: ../layout/left-menu.php:27
+msgid "Students"
+msgstr ""
+
+#: ../layout/left-menu.php:28
+msgid "Students Logs"
+msgstr ""
+
+#: ../layout/left-menu.php:29
+msgid "Membership Requests"
+msgstr ""
+
+#: ../layout/left-menu.php:31
+msgid "Manage Teachers"
+msgstr ""
+
+#: ../layout/main.php:10
+msgid "Archive"
+msgstr ""
+
+#: ../forms/student/exercises.php:13
+msgid "Search for exercises"
+msgstr ""
+
+#: ../forms/student/exercises.php:15 ../forms/teacher/exercises.php:41
+msgid "Single Exercises"
+msgstr ""
+
+#: ../forms/student/exercises.php:16
+msgid "Exercise Series"
+msgstr ""
+
+#: ../forms/student/exercises.php:19
+msgid "New"
+msgstr ""
+
+#: ../forms/student/exercises.php:20
+msgid "Old"
+msgstr ""
+
+#: ../forms/student/exercises.php:21 ../forms/student/exercises.php:27
+msgid "All"
+msgstr ""
+
+#: ../forms/student/exercises.php:23
+msgid "and"
+msgstr ""
+
+#: ../forms/student/exercises.php:25
+msgid "Solved"
+msgstr ""
+
+#: ../forms/student/exercises.php:26
+msgid "Not Solved"
+msgstr ""
+
+#: ../forms/student/exercises.php:29
+msgid "In"
+msgstr ""
+
+#: ../forms/student/exercises.php:31 ../forms/teacher/exercises.php:46
+msgid "All Courses"
+msgstr ""
+
+#: ../forms/student/exercises.php:32
+msgid "Registered Courses"
+msgstr ""
+
+#: ../forms/student/exercises.php:36
+msgid "Sorted On"
+msgstr ""
+
+#: ../forms/student/exercises.php:38
+msgid "Exercise Seri"
+msgstr ""
+
+#: ../forms/student/exercises.php:39 ../forms/teacher/exercises.php:56
+#: ../libcc/teacher/exercises.php:30 ../libcc/teacher/exercises.php:32
+msgid "Course Name"
+msgstr ""
+
+#: ../forms/student/exercises.php:40
+msgid "Creation date"
+msgstr ""
+
+#: ../forms/student/exercises.php:41 ../libcc/student/exercises.php:33
+#: ../libcc/teacher/exercises.php:26 ../libcc/student/exercises.php:29
+msgid "Deadline Date"
+msgstr ""
+
+#: ../forms/student/exercises.php:42
+msgid "Course Status"
+msgstr ""
+
+#: ../forms/student/exercises.php:44
+msgid "By"
+msgstr ""
+
+#: ../forms/student/exercises.php:46
+msgid "Ascending"
+msgstr ""
+
+#: ../forms/student/exercises.php:47
+msgid "Descending"
+msgstr ""
+
+#: ../forms/common/signup.php:16
+msgid "This page doesn't rendered good in your browser. try to upgrade it."
+msgstr ""
+
+#: ../forms/common/signup.php:22 ../forms/common/signup.php:62
+#: ../forms/common/signin.php:34 ../forms/common/signin.php:33
+msgid "Sign up"
+msgstr ""
+
+#: ../forms/common/signup.php:25
+msgid "Student Nmber"
+msgstr ""
+
+#: ../forms/common/signup.php:29
+msgid "First Name"
+msgstr ""
+
+#: ../forms/common/signup.php:33
+msgid "Last Name"
+msgstr ""
+
+#: ../forms/common/signup.php:37
+msgid "E-mail"
+msgstr ""
+
+#: ../forms/common/signup.php:42 ../forms/common/signin.php:17
+#: ../forms/common/signin.php:16
+msgid "Username"
+msgstr ""
+
+#: ../forms/common/signup.php:46 ../forms/common/signin.php:19
+#: ../forms/common/signin.php:18
+msgid "Password"
+msgstr ""
+
+#: ../forms/common/signup.php:50
+msgid "Repeat Password"
+msgstr ""
+
+#: ../forms/common/signup.php:54
+msgid "Group"
+msgstr ""
+
+#: ../forms/common/signup.php:55
+msgid "Student"
+msgstr ""
+
+#: ../forms/common/signup.php:56
+msgid "Contestant"
+msgstr ""
+
+#: ../forms/common/signup.php:57 ../libcc/student/courses.php:20
+msgid "Teacher"
+msgstr ""
+
+#: ../forms/common/signup.php:58
+msgid "Contest Admin"
+msgstr ""
+
+#: ../forms/common/signin.php:22 ../forms/common/signin.php:21
+msgid "Please enter the code in the image"
+msgstr ""
+
+#: ../forms/common/signin.php:34 ../forms/common/signin.php:33
+msgid "Have not any account yet?"
+msgstr ""
+
+#: ../forms/common/signin.php:35 ../forms/common/signin.php:34
+msgid "Forgot your password?"
+msgstr ""
+
+#: ../forms/common/signin.php:35 ../forms/common/signin.php:34
+msgid "Password recovery"
+msgstr ""
+
+#: ../forms/common/password_recovery.php:3
+msgid "Password Recovery"
+msgstr ""
+
+#: ../forms/common/password_recovery.php:4
+msgid "Please enter your E-mail address"
+msgstr ""
+
+#: ../forms/common/password_recovery.php:6
+#: ../scripts/student/exercises.js.php:73
+#: ../script/student/exercises.js.php:87
+msgid "Send"
+msgstr ""
+
+#: ../forms/common/compiler.php:7 ../forms/common/compiler.php:5
+msgid "Note"
+msgstr ""
+
+#: ../forms/common/compiler.php:8 ../forms/common/compiler.php:6
+msgid "Your program must be valid for ^C standard compilers. So consider compiling your code with our compilers before submitting it."
+msgstr ""
+
+#: ../forms/common/compiler.php:11 ../forms/common/compiler.php:9
+msgid "Insert your code"
+msgstr ""
+
+#: ../forms/common/compiler.php:15 ../forms/common/compiler.php:13
+msgid "Select the file"
+msgstr ""
+
+#: ../forms/common/compiler.php:18 ../forms/common/compiler.php:16
+msgid "Programming Language"
+msgstr ""
+
+#: ../forms/common/compiler.php:26 ../forms/common/compiler.php:24
+msgid "Continue to"
+msgstr ""
+
+#: ../forms/common/compiler.php:33 ../forms/student/exercises.php:49
+#: ../forms/common/compiler.php:31
+msgid "Show"
+msgstr ""
+
+#: ../forms/common/compiler.php:34 ../forms/common/compiler.php:32
+msgid "Errors"
+msgstr ""
+
+#: ../forms/common/compiler.php:35 ../forms/common/compiler.php:33
+msgid "Warnings"
+msgstr ""
+
+#: ../forms/common/compiler.php:36 ../libcc/common/compiler.php:109
+#: ../forms/common/compiler.php:34 ../libcc/common/compiler.php:105
+msgid "Assembly Code"
+msgstr ""
+
+#: ../forms/common/compiler.php:38 ../forms/common/compiler.php:36
+msgid "Do"
+msgstr ""
+
+#: ../forms/common/compiler.php:42 ../forms/common/compiler.php:40
+msgid "JavaScript support must be enabled.."
+msgstr ""
+
+#: ../forms/common/compiler.php:49 ../forms/common/compiler.php:47
+msgid "You shoud select a source file if your code is wrote in Java"
+msgstr ""
+
+#: ../scripts/TableForm.js.php:8 ../script/TableForm.js.php:7
+msgid "Number of Records each page"
+msgstr ""
+
+#: ../scripts/TableForm.js.php:10 ../script/TableForm.js.php:9
+msgid "Previous"
+msgstr ""
+
+#: ../scripts/TableForm.js.php:10 ../script/TableForm.js.php:9
+msgid "Next"
+msgstr ""
+
+#: ../scripts/login.js.php:16 ../script/login.js.php:16
+msgid "Welcome!"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:9 ../script/student/exercises.js.php:8
+msgid "Not received"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:10 ../script/student/exercises.js.php:9
+msgid "Not graded"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:13
+#: ../script/student/exercises.js.php:11
+msgid "Cheat"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:14
+#: ../script/student/exercises.js.php:12
+msgid "No Zip archive received"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:15
+#: ../script/student/exercises.js.php:13
+msgid "Zipped file was corrupted"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:18
+#: ../script/student/exercises.js.php:17
+msgid "Total Seri Grade"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:28
+#: ../script/student/exercises.js.php:29
+msgid "Cheat detected"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:30
+#: ../script/student/exercises.js.php:43
+msgid "Exercise Grade"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:30
+#: ../script/student/exercises.js.php:40 ../script/student/exercises.js.php:43
+msgid "Compile Error"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:30
+#: ../scripts/student/exercises.js.php:31 ../libcc/student/exercises.php:42
+#: ../script/student/exercises.js.php:43 ../script/student/exercises.js.php:44
+#: ../libcc/student/exercises.php:37
+msgid "No"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:30 ../libcc/student/exercises.php:42
+#: ../script/student/exercises.js.php:43 ../libcc/student/exercises.php:37
+msgid "Yes"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:31
+#: ../script/student/exercises.js.php:44
+msgid "Runtime duration"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:31
+#: ../script/student/exercises.js.php:44
+msgid "Runtime Error"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:31
+#: ../script/student/exercises.js.php:44
+msgid "For test-case(s)"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:52
+#: ../scripts/student/exercises.js.php:98
+#: ../script/student/exercises.js.php:66
+#: ../script/student/exercises.js.php:114
+msgid "Please wait"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:65
+#: ../script/student/exercises.js.php:79
+msgid "Exercises were not graded yet"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:67
+#: ../script/student/exercises.js.php:81
+msgid "You can send your homework in Exercise Seri section"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:75
+#: ../script/student/exercises.js.php:89
+msgid "Select your zipped archive"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:76
+#: ../script/student/exercises.js.php:90
+msgid "Your codes are received"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:76
+#: ../script/student/exercises.js.php:90
+msgid "Do you want send them again? Ok, select your zipped archive"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:84
+#: ../script/student/exercises.js.php:98
+msgid "You cannot send your codes, because you are not a member yet"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:86
+#: ../script/student/exercises.js.php:100
+msgid "You have banned from this course"
+msgstr ""
+
+#: ../scripts/student/exercises.js.php:88
+#: ../script/student/exercises.js.php:102
+msgid "You are not member yet"
+msgstr ""
+
+#: ../libcc/general.functions.php:67 ../libcc/general.functions.php:66
+msgid "An error occurred. it's logged."
+msgstr ""
+
+#: ../libcc/account/password_recovery.php:22
+msgid "A mail schedulated to be sent.. that contains a link to change your password"
+msgstr ""
+
+#: ../libcc/student/exercises.php:26 ../libcc/student/courses.php:20
+#: ../libcc/student/exercises.php:21
+msgid "ID"
+msgstr ""
+
+#: ../libcc/student/exercises.php:26 ../libcc/teacher/exercises.php:26
+#: ../libcc/student/exercises.php:21
+msgid "Seri"
+msgstr ""
+
+#: ../libcc/student/exercises.php:29 ../libcc/teacher/exercises.php:21
+#: ../libcc/student/exercises.php:24
+msgid "Exercise"
+msgstr ""
+
+#: ../libcc/student/exercises.php:33 ../libcc/student/courses.php:20
+#: ../libcc/student/exercises.php:29
+msgid "Course"
+msgstr ""
+
+#: ../libcc/student/exercises.php:33 ../libcc/teacher/exercises.php:26
+#: ../libcc/student/exercises.php:29
+msgid "Creation Date"
+msgstr ""
+
+#: ../libcc/student/exercises.php:33 ../libcc/student/exercises.php:29
+msgid "Expired"
+msgstr ""
+
+#: ../libcc/common/compiler.php:20 ../libcc/common/compiler.php:16
+msgid "No source code received"
+msgstr ""
+
+#: ../libcc/common/compiler.php:39 ../libcc/common/compiler.php:35
+msgid "No file selected"
+msgstr ""
+
+#: ../libcc/common/compiler.php:93 ../libcc/common/compiler.php:89
+msgid "Compiled Successfully"
+msgstr ""
+
+#: ../libcc/common/compiler.php:93 ../libcc/common/compiler.php:89
+msgid "Produced Code size"
+msgstr ""
+
+#: ../libcc/common/compiler.php:93 ../libcc/common/compiler.php:89
+msgid "Bytes"
+msgstr ""
+
+#: ../libcc/common/compiler.php:95 ../libcc/common/compiler.php:91
+msgid "Your program has errors.. please fix the errors before send"
+msgstr ""
+
+#: ../libcc/common/compiler.php:99 ../libcc/common/compiler.php:95
+msgid "Compiler messages"
+msgstr ""
+
+#: ../libcc/error_codes.php:18
+msgid "You must login again"
+msgstr ""
+
+#: ../libcc/error_codes.php:19
+msgid "You have NOT sufficient privilege to do this"
+msgstr ""
+
+#: ../libcc/error_codes.php:20
+msgid "Data received is invalid"
+msgstr ""
+
+#: ../libcc/error_codes.php:21
+msgid "Security Code you entered is not true"
+msgstr ""
+
+#: ../libcc/error_codes.php:22
+msgid "Error in Database connection"
+msgstr ""
+
+#: ../libcc/error_codes.php:23
+msgid "Please fill the form"
+msgstr ""
+
+#: ../libcc/error_codes.php:24
+msgid "Password is not same as repeated password"
+msgstr ""
+
+#: ../libcc/error_codes.php:25
+msgid "Error in Database queries"
+msgstr ""
+
+#: ../libcc/error_codes.php:25
+msgid "Error had been logged and probaby be fixed soon"
+msgstr ""
+
+#: ../libcc/error_codes.php:26
+msgid "Authentication failed"
+msgstr ""
+
+#: ../libcc/error_codes.php:27
+msgid "No change made"
+msgstr ""
+
+#: ../libcc/error_codes.php:28
+msgid "Exercise file exists"
+msgstr ""
+
+#: ../libcc/error_codes.php:29
+msgid "Your account had been locked"
+msgstr ""
+
+#: ../layout/main.php:16
+msgid "about"
+msgstr ""
+
+#: ../layout/main.php:17
+msgid "Please read the project page:"
+msgstr ""
+
+#: ../layout/home.php:9
+msgid "Student Panel"
+msgstr ""
+
+#: ../layout/home.php:37
+msgid "Teacher Panel"
+msgstr ""
+
+#: ../script/student/exercises.js.php:32
+msgid "Source Code"
+msgstr ""
+
+#: ../script/student/exercises.js.php:33
+msgid "Test-case Input"
+msgstr ""
+
+#: ../script/student/exercises.js.php:34
+msgid "Test-case True Output"
+msgstr ""
+
+#: ../script/student/exercises.js.php:38
+msgid "Test-case Output"
+msgstr ""
+
+#: ../forms/teacher/exercises.php:39
+msgid "Show Exercises"
+msgstr ""
+
+#: ../forms/teacher/exercises.php:54
+msgid "Sorted By"
+msgstr ""
+
+#: ../forms/teacher/exercises.php:57
+msgid "Seri Number"
+msgstr ""
+
+#: ../libcc/account/signup.php:27
+msgid "Enter same password twice"
+msgstr ""
+
+#: ../libcc/account/signup.php:43
+msgid "You have entered duplicated data"
+msgstr ""
+
+#: ../libcc/account/signup.php:72
+msgid "Registeration was successfull"
+msgstr ""
+
+#: ../libcc/teacher/add_course.php:49
+msgid "You Can't."
+msgstr ""
+
+#: ../libcc/teacher/edit_course.php:31
+msgid "Changes was successfull"
+msgstr ""
+
+#: ../libcc/teacher/edit_course.php:33
+msgid "No Changes made. Check your permissions."
+msgstr ""
+
+#: ../libcc/teacher/exercises.php:30
+msgid "Teacher Name"
+msgstr ""
+
+#: ../libcc/teacher/exercises.php:30 ../libcc/teacher/exercises.php:33
+msgid "Expire"
+msgstr ""
+
+#: ../libcc/teacher/exercises.php:33
+msgid "Lock"
+msgstr ""
+
+#: ../libcc/teacher/exercises.php:37
+msgid "Details"
+msgstr ""
+
+#: ../libcc/student/courses.php:20
+msgid "Year"
+msgstr ""
+
+#: ../libcc/student/courses.php:20
+msgid "Status"
+msgstr ""
+
+#: ../libcc/student/courses.php:22
+msgid "Registeration"
+msgstr ""
+
+#: ../libcc/student/courses.php:25
+msgid "Closed"
+msgstr ""
+
+#: ../libcc/student/courses.php:25
+msgid "Open"
+msgstr ""
+
+#: ../libcc/student/courses.php:29
+msgid "Waiting for verification"
+msgstr ""
+
+#: ../libcc/student/courses.php:30
+msgid "Registered"
+msgstr ""
+
+#: ../libcc/student/courses.php:31
+msgid "Doesn't verified"
+msgstr ""
+
+#: ../libcc/student/courses.php:32
+msgid "Doesn't Requested"
+msgstr ""
+
+#: ../libcc/common/view_detailed_logs.php:76
+msgid "No file received"
+msgstr ""
+
+#: ../libcc/common/view_detailed_logs.php:76
+msgid "Doesn't graded yet"
+msgstr ""

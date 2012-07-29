@@ -1,0 +1,755 @@
+# Persian translations for ^C package.
+# Copyright (C) 2011 THE ^C'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the ^C package.
+#  <reith@localhost.localdomain>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ^C 1.0\n"
+"Report-Msgid-Bugs-To: Ameretat.Reith@gmail.com\n"
+"POT-Creation-Date: 2012-07-27 16:16+0430\n"
+"PO-Revision-Date: 2012-07-27 16:16+0330\n"
+"Last-Translator: Reith <Ameretat.Reith@gmail.com>\n"
+"Language-Team: Persian\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../index.php:21
+#: ../index.php:43
+msgid "Sorry, Communication with server faileds."
+msgstr "متاسفانه ارتباط با سرور برقرار نشد."
+
+#: ../index.php:46
+#: ../index.php:68
+msgid "Please wait..."
+msgstr "لطفا صبر کنید..."
+
+#: ../layout/header_div.php:14
+#: ../layout/header_div.php:13
+msgid "Sign out"
+msgstr "خروج"
+
+#: ../layout/header_div.php:16
+#: ../forms/common/signin.php:15
+#: ../forms/common/signin.php:31
+#: ../layout/header_div.php:15
+#: ../forms/common/signin.php:14
+#: ../forms/common/signin.php:30
+msgid "Login"
+msgstr "ورود"
+
+#: ../layout/header_div.php:16
+#: ../layout/header_div.php:15
+msgid "Register"
+msgstr "ثبت نام"
+
+#: ../layout/header_div.php:32
+#: ../layout/header_div.php:31
+msgid "Server time"
+msgstr "زمان سرور"
+
+#: ../layout/left-menu.php:21
+msgid "Online Compiler"
+msgstr "کمپایلر آنلاین"
+
+#: ../layout/left-menu.php:24
+msgid "Exercises"
+msgstr "تمرینات"
+
+#: ../layout/left-menu.php:25
+msgid "Courses"
+msgstr "دروس"
+
+#: ../layout/left-menu.php:27
+msgid "Students"
+msgstr "دانشجوها"
+
+#: ../layout/left-menu.php:28
+msgid "Students Logs"
+msgstr "کارنامه دانشجوها"
+
+#: ../layout/left-menu.php:29
+msgid "Membership Requests"
+msgstr "درخواست‌های عضویت"
+
+#: ../layout/left-menu.php:31
+msgid "Manage Teachers"
+msgstr "مدیریت اساتید"
+
+#: ../layout/main.php:10
+msgid "Archive"
+msgstr "آرشیو"
+
+#: ../forms/student/exercises.php:13
+msgid "Search for exercises"
+msgstr "جستجوی تمرینات"
+
+#: ../forms/student/exercises.php:15
+#: ../forms/teacher/exercises.php:41
+msgid "Single Exercises"
+msgstr "تمرینات مجزا"
+
+#: ../forms/student/exercises.php:16
+msgid "Exercise Series"
+msgstr "سری تمرینات"
+
+#: ../forms/student/exercises.php:19
+msgid "New"
+msgstr "جدید"
+
+#: ../forms/student/exercises.php:20
+msgid "Old"
+msgstr "قدیمی"
+
+#: ../forms/student/exercises.php:21
+#: ../forms/student/exercises.php:27
+msgid "All"
+msgstr "همه"
+
+#: ../forms/student/exercises.php:23
+msgid "and"
+msgstr "و"
+
+#: ../forms/student/exercises.php:25
+msgid "Solved"
+msgstr "حل شده"
+
+#: ../forms/student/exercises.php:26
+msgid "Not Solved"
+msgstr "حل نشده"
+
+#: ../forms/student/exercises.php:29
+msgid "In"
+msgstr "در"
+
+#: ../forms/student/exercises.php:31
+#: ../forms/teacher/exercises.php:46
+msgid "All Courses"
+msgstr "همه دروس"
+
+#: ../forms/student/exercises.php:32
+msgid "Registered Courses"
+msgstr "دروس ثبت شده"
+
+#: ../forms/student/exercises.php:36
+msgid "Sorted On"
+msgstr "مرتب شده بر اساس"
+
+#: ../forms/student/exercises.php:38
+msgid "Exercise Seri"
+msgstr "سری تمرین"
+
+#: ../forms/student/exercises.php:39
+#: ../forms/teacher/exercises.php:56
+#: ../libcc/teacher/exercises.php:30
+#: ../libcc/teacher/exercises.php:32
+msgid "Course Name"
+msgstr "نام درس"
+
+#: ../forms/student/exercises.php:40
+msgid "Creation date"
+msgstr "زمان ساخت"
+
+#: ../forms/student/exercises.php:41
+#: ../libcc/student/exercises.php:33
+#: ../libcc/teacher/exercises.php:26
+#: ../libcc/student/exercises.php:29
+msgid "Deadline Date"
+msgstr "مهلت تحویل"
+
+#: ../forms/student/exercises.php:42
+msgid "Course Status"
+msgstr "وضعیت درس"
+
+#: ../forms/student/exercises.php:44
+msgid "By"
+msgstr "به صورت"
+
+#: ../forms/student/exercises.php:46
+msgid "Ascending"
+msgstr "صعودی"
+
+#: ../forms/student/exercises.php:47
+msgid "Descending"
+msgstr "نزولی"
+
+#: ../forms/common/signup.php:16
+msgid "This page doesn't rendered good in your browser. try to upgrade it."
+msgstr "این صفحه در مرورگر شما به خوبی نمایش داده نمی‌شود. لطفا آن را بروز کنید."
+
+#: ../forms/common/signup.php:22
+#: ../forms/common/signup.php:62
+#: ../forms/common/signin.php:34
+#: ../forms/common/signin.php:33
+msgid "Sign up"
+msgstr "ثبت نام"
+
+#: ../forms/common/signup.php:25
+msgid "Student Nmber"
+msgstr "شماره دانشجویی"
+
+#: ../forms/common/signup.php:29
+msgid "First Name"
+msgstr "نام"
+
+#: ../forms/common/signup.php:33
+msgid "Last Name"
+msgstr "نام خانوادگی"
+
+#: ../forms/common/signup.php:37
+msgid "E-mail"
+msgstr "پست الکترونیک"
+
+#: ../forms/common/signup.php:42
+#: ../forms/common/signin.php:17
+#: ../forms/common/signin.php:16
+msgid "Username"
+msgstr "نام کاربری"
+
+#: ../forms/common/signup.php:46
+#: ../forms/common/signin.php:19
+#: ../forms/common/signin.php:18
+msgid "Password"
+msgstr "گذرواژه"
+
+#: ../forms/common/signup.php:50
+msgid "Repeat Password"
+msgstr "تکرار گذرواژه"
+
+#: ../forms/common/signup.php:54
+msgid "Group"
+msgstr "گروه کاربری"
+
+#: ../forms/common/signup.php:55
+msgid "Student"
+msgstr "دانشجو"
+
+#: ../forms/common/signup.php:56
+msgid "Contestant"
+msgstr "شرکت کننده در مسابقه"
+
+#: ../forms/common/signup.php:57
+#: ../libcc/student/courses.php:20
+msgid "Teacher"
+msgstr "استاد"
+
+#: ../forms/common/signup.php:58
+msgid "Contest Admin"
+msgstr "برگزار کننده مسابقه"
+
+#: ../forms/common/signin.php:22
+#: ../forms/common/signin.php:21
+msgid "Please enter the code in the image"
+msgstr "لطفا کد نمایش داده شده در تصویر را وارد کنید"
+
+#: ../forms/common/signin.php:34
+#: ../forms/common/signin.php:33
+msgid "Have not any account yet?"
+msgstr "هنوز حساب باز نکرده‌اید؟"
+
+#: ../forms/common/signin.php:35
+#: ../forms/common/signin.php:34
+msgid "Forgot your password?"
+msgstr "گذرواژه حساب‌تان را فراموش کرده‌اید؟"
+
+#: ../forms/common/signin.php:35
+#: ../forms/common/signin.php:34
+msgid "Password recovery"
+msgstr "بازیابی گذرواژه"
+
+#: ../forms/common/password_recovery.php:3
+msgid "Password Recovery"
+msgstr "بازیابی گذرواژه"
+
+#: ../forms/common/password_recovery.php:4
+msgid "Please enter your E-mail address"
+msgstr "لطفا آدرس پست الکترونیک‌تان را وارد کنید"
+
+#: ../forms/common/password_recovery.php:6
+#: ../scripts/student/exercises.js.php:73
+#: ../script/student/exercises.js.php:87
+msgid "Send"
+msgstr "بفرست"
+
+#: ../forms/common/compiler.php:7
+#: ../forms/common/compiler.php:5
+msgid "Note"
+msgstr "توجه"
+
+#: ../forms/common/compiler.php:8
+#: ../forms/common/compiler.php:6
+msgid "Your program must be valid for ^C standard compilers. So consider compiling your code with our compilers before submitting it."
+msgstr "ملاک تصحیح برنامه‌های شما، خروجی گرفتن از کمپایلر معتبر برای C^ است. پس در نظر داشته باشید برنامه‌های خود را قبل از ارسال با این کمپایلرها تست کنید."
+
+#: ../forms/common/compiler.php:11
+#: ../forms/common/compiler.php:9
+msgid "Insert your code"
+msgstr "کد را وارد کنید"
+
+#: ../forms/common/compiler.php:15
+#: ../forms/common/compiler.php:13
+msgid "Select the file"
+msgstr "فایل کد را انتخاب کنید"
+
+#: ../forms/common/compiler.php:18
+#: ../forms/common/compiler.php:16
+msgid "Programming Language"
+msgstr "زبان برنامه‌نویسی"
+
+#: ../forms/common/compiler.php:26
+#: ../forms/common/compiler.php:24
+msgid "Continue to"
+msgstr "ادامه تا مرحله"
+
+#: ../forms/common/compiler.php:33
+#: ../forms/student/exercises.php:49
+#: ../forms/common/compiler.php:31
+msgid "Show"
+msgstr "نمایش"
+
+#: ../forms/common/compiler.php:34
+#: ../forms/common/compiler.php:32
+msgid "Errors"
+msgstr "خطاها"
+
+#: ../forms/common/compiler.php:35
+#: ../forms/common/compiler.php:33
+msgid "Warnings"
+msgstr "اخطارها"
+
+#: ../forms/common/compiler.php:36
+#: ../libcc/common/compiler.php:109
+#: ../forms/common/compiler.php:34
+#: ../libcc/common/compiler.php:105
+msgid "Assembly Code"
+msgstr "کد اسمبلی"
+
+#: ../forms/common/compiler.php:38
+#: ../forms/common/compiler.php:36
+msgid "Do"
+msgstr "انجام"
+
+#: ../forms/common/compiler.php:42
+#: ../forms/common/compiler.php:40
+msgid "JavaScript support must be enabled.."
+msgstr "پشتیبانی از جاوااسکریپت باید فعال باشد"
+
+#: ../forms/common/compiler.php:49
+#: ../forms/common/compiler.php:47
+msgid "You shoud select a source file if your code is wrote in Java"
+msgstr "برای کدهای نوشته شده با زبان جاوا، باید فایل کد را ارسال کنید"
+
+#: ../scripts/TableForm.js.php:8
+#: ../script/TableForm.js.php:7
+msgid "Number of Records each page"
+msgstr "تعداد نتایج در هر صفحه"
+
+#: ../scripts/TableForm.js.php:10
+#: ../script/TableForm.js.php:9
+msgid "Previous"
+msgstr "قبل"
+
+#: ../scripts/TableForm.js.php:10
+#: ../script/TableForm.js.php:9
+msgid "Next"
+msgstr "بعد"
+
+#: ../scripts/login.js.php:16
+#: ../script/login.js.php:16
+msgid "Welcome!"
+msgstr "خوش آمدید!"
+
+#: ../scripts/student/exercises.js.php:9
+#: ../script/student/exercises.js.php:8
+msgid "Not received"
+msgstr "دریافت نشده"
+
+#: ../scripts/student/exercises.js.php:10
+#: ../script/student/exercises.js.php:9
+msgid "Not graded"
+msgstr "تصحیح نشده"
+
+#: ../scripts/student/exercises.js.php:13
+#: ../script/student/exercises.js.php:11
+msgid "Cheat"
+msgstr "تقلب"
+
+#: ../scripts/student/exercises.js.php:14
+#: ../script/student/exercises.js.php:12
+msgid "No Zip archive received"
+msgstr "کدی دریافت نشد"
+
+#: ../scripts/student/exercises.js.php:15
+#: ../script/student/exercises.js.php:13
+msgid "Zipped file was corrupted"
+msgstr "فایل زیپ شده خراب است"
+
+#: ../scripts/student/exercises.js.php:18
+#: ../script/student/exercises.js.php:17
+msgid "Total Seri Grade"
+msgstr "نمره کل سری"
+
+#: ../scripts/student/exercises.js.php:28
+#: ../script/student/exercises.js.php:29
+msgid "Cheat detected"
+msgstr "تقلب تشخیص داده شد"
+
+#: ../scripts/student/exercises.js.php:30
+#: ../script/student/exercises.js.php:43
+msgid "Exercise Grade"
+msgstr "نمره تمرین"
+
+#: ../scripts/student/exercises.js.php:30
+#: ../script/student/exercises.js.php:40
+#: ../script/student/exercises.js.php:43
+msgid "Compile Error"
+msgstr "خطای کمپایل"
+
+#: ../scripts/student/exercises.js.php:30
+#: ../scripts/student/exercises.js.php:31
+#: ../libcc/student/exercises.php:42
+#: ../script/student/exercises.js.php:43
+#: ../script/student/exercises.js.php:44
+#: ../libcc/student/exercises.php:37
+msgid "No"
+msgstr "خیر"
+
+#: ../scripts/student/exercises.js.php:30
+#: ../libcc/student/exercises.php:42
+#: ../script/student/exercises.js.php:43
+#: ../libcc/student/exercises.php:37
+msgid "Yes"
+msgstr "بله"
+
+#: ../scripts/student/exercises.js.php:31
+#: ../script/student/exercises.js.php:44
+msgid "Runtime duration"
+msgstr "مدت اجرا"
+
+#: ../scripts/student/exercises.js.php:31
+#: ../script/student/exercises.js.php:44
+msgid "Runtime Error"
+msgstr "خطای زمان اجرا"
+
+#: ../scripts/student/exercises.js.php:31
+#: ../script/student/exercises.js.php:44
+msgid "For test-case(s)"
+msgstr "برای موارد"
+
+#: ../scripts/student/exercises.js.php:52
+#: ../scripts/student/exercises.js.php:98
+#: ../script/student/exercises.js.php:66
+#: ../script/student/exercises.js.php:114
+msgid "Please wait"
+msgstr "لطفا صبر کنید"
+
+#: ../scripts/student/exercises.js.php:65
+#: ../script/student/exercises.js.php:79
+msgid "Exercises were not graded yet"
+msgstr "تمرینات هنوز تصحیح نشده‌اند"
+
+#: ../scripts/student/exercises.js.php:67
+#: ../script/student/exercises.js.php:81
+msgid "You can send your homework in Exercise Seri section"
+msgstr "شما می‌توانید تمریناتتان را از قسمت سری تمرینات بفرستید"
+
+#: ../scripts/student/exercises.js.php:75
+#: ../script/student/exercises.js.php:89
+msgid "Select your zipped archive"
+msgstr "فایل زیپ تمریناتتان را انتخاب کنید"
+
+#: ../scripts/student/exercises.js.php:76
+#: ../script/student/exercises.js.php:90
+msgid "Your codes are received"
+msgstr "کدهای شما دریافت شده"
+
+#: ../scripts/student/exercises.js.php:76
+#: ../script/student/exercises.js.php:90
+msgid "Do you want send them again? Ok, select your zipped archive"
+msgstr "آیا می‌خواهید دوباره بفرستید؟ فایل زیپ را انتخاب کنید"
+
+#: ../scripts/student/exercises.js.php:84
+#: ../script/student/exercises.js.php:98
+msgid "You cannot send your codes, because you are not a member yet"
+msgstr "شما نمی‌توانید تمرینی بفرستید، چون هنوز عضو این درس نیستید."
+
+#: ../scripts/student/exercises.js.php:86
+#: ../script/student/exercises.js.php:100
+msgid "You have banned from this course"
+msgstr "عضویت شما در این درس مسدود شده است"
+
+#: ../scripts/student/exercises.js.php:88
+#: ../script/student/exercises.js.php:102
+msgid "You are not member yet"
+msgstr "شما هنوز عضو این درس نیستید"
+
+#: ../libcc/general.functions.php:67
+#: ../libcc/general.functions.php:66
+msgid "An error occurred. it's logged."
+msgstr "خطایی رخ داد. خط ثبت شد."
+
+#: ../libcc/account/password_recovery.php:22
+msgid "A mail schedulated to be sent.. that contains a link to change your password"
+msgstr "یک پست الکترونیک برای شما ارسال خواهد شد.. این پست حاوی لینکی برای تغییر رمز عبور شماست."
+
+#: ../libcc/student/exercises.php:26
+#: ../libcc/student/courses.php:20
+#: ../libcc/student/exercises.php:21
+msgid "ID"
+msgstr "شناسه"
+
+#: ../libcc/student/exercises.php:26
+#: ../libcc/teacher/exercises.php:26
+#: ../libcc/student/exercises.php:21
+msgid "Seri"
+msgstr "سری"
+
+#: ../libcc/student/exercises.php:29
+#: ../libcc/teacher/exercises.php:21
+#: ../libcc/student/exercises.php:24
+msgid "Exercise"
+msgstr "تمرین"
+
+#: ../libcc/student/exercises.php:33
+#: ../libcc/student/courses.php:20
+#: ../libcc/student/exercises.php:29
+msgid "Course"
+msgstr "درس"
+
+#: ../libcc/student/exercises.php:33
+#: ../libcc/teacher/exercises.php:26
+#: ../libcc/student/exercises.php:29
+msgid "Creation Date"
+msgstr "زمان ساخت"
+
+#: ../libcc/student/exercises.php:33
+#: ../libcc/student/exercises.php:29
+msgid "Expired"
+msgstr "منقضی"
+
+#: ../libcc/common/compiler.php:20
+#: ../libcc/common/compiler.php:16
+msgid "No source code received"
+msgstr "کدی دریافت نشد"
+
+#: ../libcc/common/compiler.php:39
+#: ../libcc/common/compiler.php:35
+msgid "No file selected"
+msgstr "فایلی انتخاب نشده"
+
+#: ../libcc/common/compiler.php:93
+#: ../libcc/common/compiler.php:89
+msgid "Compiled Successfully"
+msgstr "با موفقیت کمپایل شد"
+
+#: ../libcc/common/compiler.php:93
+#: ../libcc/common/compiler.php:89
+msgid "Produced Code size"
+msgstr "سایز کد تولید شده"
+
+#: ../libcc/common/compiler.php:93
+#: ../libcc/common/compiler.php:89
+msgid "Bytes"
+msgstr "بایت"
+
+#: ../libcc/common/compiler.php:95
+#: ../libcc/common/compiler.php:91
+msgid "Your program has errors.. please fix the errors before send"
+msgstr "برنامه شما برای ارسال مناسب نیست.. لطفا قبل از ارسال؛ خطاها را بر طرف کنید."
+
+#: ../libcc/common/compiler.php:99
+#: ../libcc/common/compiler.php:95
+msgid "Compiler messages"
+msgstr "پیغام‌های کمپایلر"
+
+#: ../libcc/error_codes.php:18
+msgid "You must login again"
+msgstr "شما باید دوباره وارد شوید"
+
+#: ../libcc/error_codes.php:19
+msgid "You have NOT sufficient privilege to do this"
+msgstr "مجوز دسترسی شما برای این‌کار کافی نیست"
+
+#: ../libcc/error_codes.php:20
+msgid "Data received is invalid"
+msgstr "اطلاعات معتبر دریافت نشد"
+
+#: ../libcc/error_codes.php:21
+msgid "Security Code you entered is not true"
+msgstr "کد امنیتی صحیح وارد نشده است"
+
+#: ../libcc/error_codes.php:22
+msgid "Error in Database connection"
+msgstr "در برقراری ارتباط با پایگاه داده خطا رخ داد"
+
+#: ../libcc/error_codes.php:23
+msgid "Please fill the form"
+msgstr "فرم را پر کنید"
+
+#: ../libcc/error_codes.php:24
+msgid "Password is not same as repeated password"
+msgstr "کلمه عبور با تکرار آن مطابقت ندارد."
+
+#: ../libcc/error_codes.php:25
+msgid "Error in Database queries"
+msgstr "متاسفانه در اجرای کدهای پایگاه داده خطا رخ داد"
+
+#: ../libcc/error_codes.php:25
+msgid "Error had been logged and probaby be fixed soon"
+msgstr "خطا ثبت شد و احتمالا به زودی برطرف می‌شود"
+
+#: ../libcc/error_codes.php:26
+msgid "Authentication failed"
+msgstr "مشخصات صحیح نیست"
+
+#: ../libcc/error_codes.php:27
+msgid "No change made"
+msgstr "عملیاتی انجام نشد"
+
+#: ../libcc/error_codes.php:28
+msgid "Exercise file exists"
+msgstr "فایل تمرینات موجود است"
+
+#: ../libcc/error_codes.php:29
+msgid "Your account had been locked"
+msgstr "اکانت کاربری شما قفل شده است"
+
+#: ../layout/main.php:16
+msgid "about"
+msgstr "درباره"
+
+#: ../layout/main.php:17
+msgid "Please read the project page:"
+msgstr "قبل از شروع به کار، راهنمای پروژه را بخوانید."
+
+#: ../layout/home.php:9
+msgid "Student Panel"
+msgstr "پنل دانشجو"
+
+#: ../layout/home.php:37
+msgid "Teacher Panel"
+msgstr "پنل استاد"
+
+#: ../script/student/exercises.js.php:32
+msgid "Source Code"
+msgstr "کد"
+
+#: ../script/student/exercises.js.php:33
+msgid "Test-case Input"
+msgstr "ورودی نمونه"
+
+#: ../script/student/exercises.js.php:34
+msgid "Test-case True Output"
+msgstr "خروجی نمونه صحیح"
+
+#: ../script/student/exercises.js.php:38
+msgid "Test-case Output"
+msgstr "خروجی نمونه"
+
+#: ../forms/teacher/exercises.php:39
+msgid "Show Exercises"
+msgstr "نمایش تمرینات"
+
+#: ../forms/teacher/exercises.php:54
+msgid "Sorted By"
+msgstr "مرتب شده بر اساس"
+
+#: ../forms/teacher/exercises.php:57
+msgid "Seri Number"
+msgstr "شماره سری"
+
+#: ../libcc/account/signup.php:27
+msgid "Enter same password twice"
+msgstr "رمز عبور را دوباره وارد کنید"
+
+#: ../libcc/account/signup.php:43
+msgid "You have entered duplicated data"
+msgstr "شما اطلاعات تکراری وارد کردید"
+
+#: ../libcc/account/signup.php:72
+msgid "Registeration was successfull"
+msgstr "عضویت با موفقیت به پایان رسید"
+
+#: ../libcc/teacher/add_course.php:49
+msgid "You Can't."
+msgstr "شما نمی‌توانید."
+
+#: ../libcc/teacher/edit_course.php:31
+msgid "Changes was successfull"
+msgstr "تغییرات موفقیت آمیز اعمال شد."
+
+#: ../libcc/teacher/edit_course.php:33
+msgid "No Changes made. Check your permissions."
+msgstr "تغییری رخ نداد. مجوزهای کاربری‌تان رو بررسی کنید."
+
+#: ../libcc/teacher/exercises.php:30
+msgid "Teacher Name"
+msgstr "استاد"
+
+#: ../libcc/teacher/exercises.php:30
+#: ../libcc/teacher/exercises.php:33
+msgid "Expire"
+msgstr "منقضی"
+
+#: ../libcc/teacher/exercises.php:33
+msgid "Lock"
+msgstr "قفل"
+
+#: ../libcc/teacher/exercises.php:37
+msgid "Details"
+msgstr "جزئیات"
+
+#: ../libcc/student/courses.php:20
+msgid "Year"
+msgstr "سال"
+
+#: ../libcc/student/courses.php:20
+msgid "Status"
+msgstr "وضعیت درس"
+
+#: ../libcc/student/courses.php:22
+msgid "Registeration"
+msgstr "ثبت نام"
+
+#: ../libcc/student/courses.php:25
+msgid "Closed"
+msgstr "بسته"
+
+#: ../libcc/student/courses.php:25
+msgid "Open"
+msgstr "باز"
+
+#: ../libcc/student/courses.php:29
+msgid "Waiting for verification"
+msgstr "منتظر تائید"
+
+#: ../libcc/student/courses.php:30
+msgid "Registered"
+msgstr "ثبت شده"
+
+#: ../libcc/student/courses.php:31
+msgid "Doesn't verified"
+msgstr "تائید نشد"
+
+#: ../libcc/student/courses.php:32
+msgid "Doesn't Requested"
+msgstr "درخواست نشده"
+
+#: ../libcc/common/view_detailed_logs.php:76
+msgid "No file received"
+msgstr "دریافت نشده"
+
+#: ../libcc/common/view_detailed_logs.php:76
+msgid "Doesn't graded yet"
+msgstr "تصحیح نشده"
+
+#~ msgid "Signle Exercises"
+#~ msgstr "تمرینات مجزا"
+
+#~ msgid "Exercies"
+#~ msgstr "تمرینات"
+
+#~ msgid "Finish"
+#~ msgstr "پایان"

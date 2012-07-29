@@ -1,0 +1,16 @@
+config.php
+logs/
+files
+now.sh
+*~
+a.php
+cc_mvc.sem
+cc_source_images
+stat.log
+crons.cron
+test.php
+cc.kdev4
+mail.txt
+stats.log
+update.exercise_result.php
+
