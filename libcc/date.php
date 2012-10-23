@@ -1,5 +1,36 @@
 <?php
+// DEPRECATED. SHOULD BE REMOVED
 // REITH: DATE FUNCTION (WITHOUT JALALI CALENEDR)
+
+require_once 'libcc/session.php';
+
+function timestamp_to_hijri_shamsi( $ts, $format = null ) {
+	$pdf = new IntlDateFormatter("fa_IR@calendar=persian",
+		IntlDateFormatter::SHORT, 
+		IntlDateFormatter::SHORT,
+		'Asia/Tehran', IntlDateFormatter::TRADITIONAL,
+		$format
+		);
+	return $pdf->format( $ts );
+}
+
+function timestamp_to_gregorian( $ts, $format = null ) {
+	$pdf = new IntlDateFormatter("en_US@calendar=gregorian",
+		IntlDateFormatter::SHORT, 
+		IntlDateFormatter::SHORT,
+		'GMT', IntlDateFormatter::TRADITIONAL,
+		$format
+		);
+	return $pdf->format( $ts );
+}
+
+function locale_date( $ts, $format = null ) {
+	if( $_SESSION['locale'] == 'fa' ) {
+		return timestamp_to_hijri_shamsi( $ts, $format );
+	}
+	return timestamp_to_gregorian( $ts, $format );
+}
+
 
 function div($a, $b)
 {

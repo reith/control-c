@@ -3,6 +3,7 @@ require_once 'libcc/config.php';
 /*
 ** Before we start session need these declarations
 */
+require_once 'libcc/locale.class.php';
 require_once 'libcc/context.class.php';
 
 // Now start session
@@ -10,78 +11,95 @@ require_once 'libcc/session.php';
 
 require_once 'libcc/general.functions.php';
 
-/*
-** session must be started
-*/
-$req_path = null;
+// if (! isset($_SESSION['context']) )
+//	$_SESSION['context'] = new Context('http');
+
+$env = new Context('http');
+
 require 'libcc/routing.php';
 
-if (! isset($_SESSION['context']) )
-	$_SESSION['context'] = new Context('http');
+if( $env->getAction() ) {
+	require './action/'.$env->getAction().'.php';
+}
 
+/*
+ * Finish JSON requests
+ */
+ if( $env->isJSON() ) {
+ 	$env->setHeaders();
+	die();
+ }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="<?=$_SESSION['locale']?>" xml:lang="<?=$_SESSION['locale']?>" dir="<?=$_SESSION['dir']?>">
+<!DOCTYPE html>
+<html lang="<?=$env->locale()->name()?>">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <base href="<?=__url__?>" />
-<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+<!-- <link rel="stylesheet" type="text/css" href="/css/styles.css" /> -->
 <link rel="stylesheet" type="text/css" href="/css/popup.css" />
-<link rel="icon" type="image/png" href="/layout/img/faveicon.png" />
-<script type="text/javascript" src="/script/styles.js"></script>
-<script type="text/javascript" src="/script/ajax.js"></script>
-<script type="text/javascript" src="/script/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="/script/popup.js"></script>
-<script type="text/javascript" src="/script/locale.js.php"></script>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap-<?=$env->locale()->direction();?>.css" />
 
+<!-- load javascript files don't want to be loaded bye requireJS -->
+<script type="text/javascript" src="/script/styles.js"></script>
+<!-- -->
+
+<!-- requireJS pre load config -->
 <script type="text/javascript">
-$(document).ready(function(){
-		$loading=$('#loading');
-		$.ajaxSetup({ beforeSend: function() {$loading.slideDown('fast')},
-			complete: function() { $loading.slideUp('slow'); },
-			error: function(e,t,x){ showError ('<?=_("Sorry, Communication with server faileds.");?>'+x); $loading.slideUp('slow');},
-			success: function() {$loading.slideUp('slow');},
-			});
-		jsonError=function(json){if (json.error) { showError (json.error) ; return true }};
-		});
+require_pre_cfg = {config: {
+	i18n: {
+		locale: '<?=$env->locale()->name();?>'
+	}
+}};
 </script>
 
-<title id='title'>^C Yet Another Judgement System!</title>
+<script src="/script/lib/require/require.js"></script>
+<script src="/script/main.js"></script>
+
+<title id='title'><?= ($env->getData('title') != null) ? $env->getData('title') : "^c"; ?></title>
+
 </head>
-<body style="direction: <?=$_SESSION['dir']?>;">
-<div id="header" style="text-align: <?=$_SESSION['dir']=='ltr'?'left; padding-left: 300px;':'right'?> ;">
-<?php require "./layout/header_div.php"; ?>
+<body style="direction: <?=$env->locale()->direction()?>;">
+
+
+<script type="text/javascript">
+// Make App javascript module
+require(['app', 'jquery'], function( App, $ ){
+	App.setEnv(<?=json_encode( array ( 
+		'url' => Routing::currentUrl(),
+		'locale' => $env->locale()->name()
+	)); ?>);
+});
+</script>
+
+<header><?php require 'layout/header.php'; ?></header>
 <div id="alert"></div>
+
+<div class="container-fluid" id="main">
+
+<div id="loading"><?=_('Loading')?><img src="/layout/img/loading.gif" alt="loading..."/></div>
+<!--
+<?php // require "./layout/left-menu.php";?>
+-->
+
+<!-- <div class="alert">This is calendar!</div> -->
+
+<div class="row-fluid">
+<?php is_null($env->getLayout() ) || require './layout/'.$env->getLayout().'.php'; ?>
 </div>
 
-<div id="alertMsgBox" class="hidemsg">
-<div>
-<a class="imageLink" style="float:right" href="javascript:hideMsg();"><img src="/layout/img/close-msg-box.png" alt="close"></img></a>
-<div id="alertMsg"></div>
-</div>
-<div id="nextURL"></div>
 </div>
 
-
-<div id="main">
-<div id="loading"><?=_("Please wait...")?><img src="/layout/img/loading.gif" alt="loading..."/></div>
-<div id="banner"><img src="/layout/img/banner-right.gif" alt="Broken by ^C!"></img></div>
-<div class="container">
-<?php require "./layout/left-menu.php";?>
-<div class="rightContainer" ID="activeBox" style="padding:20px; width:660px;">
-
-<?php is_null($req_path) || require $req_path; ?>
-
-</div>
-</div>
-</div>
 <?php
-$fp = fopen('version.txt', 'r');
-$version = fgets( $fp, 1024 );
-$date = fgets( $fp, 1024 );
-fclose($fp);
-printf( '<div id="footer">Powered by <a style="color:#ffd83d" href="%s">^C</a> v%s</div>',"http://12eith.com/code/%5EC/", $version);
+/*
+ * $fp = fopen('version.txt', 'r');
+ * $version = fgets( $fp, 1024 );
+ * $date = fgets( $fp, 1024 );
+ * fclose($fp);
+ * printf( '<footer >Powered by <a style="color:#ffd83d" href="%s">^C</a> v%s</footer>',"http://12eith.com/code/%5EC/", $version);
+ */
 ?>
+
+<div id="nextURL" style="display:none;"></div>
 </body>
+
 </html>

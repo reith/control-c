@@ -571,12 +571,50 @@ function signInFirst( $who=null, $post=false )
 
 }
 
-function redirect404()
+function redirect404( &$env = null )
 {
+	
     header('HTTP/1.1 404 Not Found');
-    die('<html><head><title>Not Found</title></head><body><h1>The requested page doesn\'t exist</h1><h2>or you shouldn\'t see it</h2></h3>or it\'s my fault</h3><h4>or ...</h4><p>how are u?</p></body></html>');
+
+	if( is_null( $env ) )
+    	die(<<<'EOC'
+<html>
+<head>
+<title>Not Found</title>
+</head>
+<body>
+<h1>The requested page doesn't exist</h1>
+<h2>or you shouldn't see it</h2>
+</h3>or it's my fault</h3>
+<h4>or ...</h4>
+<p>how are u?</p>
+</body>
+</html>
+EOC
+);
+	
+	if(isset($_SESSION['locale']))
+		$env->setLocaleFormatter(new LocaleFormatter($_SESSION['locale']));
+	else
+		$env->setLocaleFormatter(new LocaleFormatter('en'));
+
+	if( $env->isHTML() ) {
+		$env->setLayout('error/404');
+		$env->setData('title', '404');
+	}
+	else if ( $env->isJSON() ) {
+		$env->setHeaders();
+		dieJSON('E404');
+	}
+
+	
 }
 
+function redirect302( $destination ) {
+	header('HTTP/1.1 302 Found');
+	header('Location: '.URL_ROOT.$destination);
+	die();
+};
 
 function url ($type, $id)
 {

@@ -1,4 +1,5 @@
 <?php
+//DEPRECATED
 //REITH: PRINT FORMATING FUNCTION
 function transNumber($input) 
 {
@@ -17,7 +18,7 @@ function transNumber($input)
     case "7": $faRes.="۷"; break;
     case "8": $faRes.="۸"; break;
     case "9": $faRes.="۹"; break;
-    default: $faRes.="$input[$i]"; break;
+    default: $faRes.= $input[$i]; break;
     }
     return $faRes;
 }
@@ -25,5 +26,4 @@ function fa_number($input) {
     
     return transNumber($input);
 }
-
 ?>

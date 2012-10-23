@@ -1,7 +1,6 @@
 <?php
 // REITH: AUTHENTICATION WITH SESSION
 // NOT JUST PHP SESSION.. GENERALLY EVERYTHING MUST BE ACCESSIBLE THROUGH ALL PAGES [IN OUR SESSION WITH CLIENT]
-define ('__locale_path__', "/var/www/localhost/htdocs/cc/locale");
 
 ini_set('use_cookies', 1);
 ini_set('use_only_cookies', 1);
@@ -51,31 +50,4 @@ function signOut()
     
 }
 
-if (!isset($_SESSION['locale']))
-{
-    $_SESSION['locale']='fa';
-    $_SESSION['dir']= 'rtl';
-}
-if (isset( $_REQUEST['locale']))
-{
-  if ($_REQUEST['locale'] == 'fa')
-  {
-      $_SESSION['dir']= 'rtl';
-      $_SESSION['locale']='fa';
-  }
-  else
-  {
-      $_SESSION['locale']='en';
-      $_SESSION['dir']= 'ltr';
-  }
-}
-
-  switch ($_SESSION['locale'])
-  {
-    case 'fa': setlocale(LC_ALL, 'fa_IR'); break;
-    case 'en': setlocale(LC_ALL, 'en_US'); break;
-  }
-
-  bindtextdomain('cc', __locale_path__); 
-  textdomain('cc');
 ?>

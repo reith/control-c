@@ -1,0 +1,40 @@
+<h2><%* problemset %> <%- Locale._number(id) %></h2>
+<% if (expired) { %>
+<span class='label label-fail'><%* expired %></span>
+<% if (graded) {%>
+<span class='label label-success'><%* graded %></span>
+<% } } else { %>
+<span class='label label-success'><%* open %></span>
+<% } %>
+<hr>
+
+<dl class="dl-horizontal no-bold-dt">
+<div class="row-fluid">
+<div class="span6">
+<dt><%* course %></dt><dd><a class="entity course" href="/<%- courseId %>"><%- courseName %></a></dd>
+<dt><%* setnum %></dt><dd><%= Locale._number(number) %></dd>
+<dt><%* wage %></dt><dd><%= Locale._number(wage) %>
+[
+	<%* eftiv %>:
+	<% if ( effectiveWage > 0 ) { %>
+		<%= Locale._number( effectiveWage * 100 )+'%' %>
+	<% } else { %>
+		<%* optionalset %>
+	<% } %>
+]
+</dd>
+</div> <!--span6-->
+
+<div class="span6">
+<dt><%* cdate %></dt><dd><%- createDate %></dd>
+<dt><%* deadline %></dt><dd><%- deadlineDate %></dd>
+<dt><%* gdate %></dt><dd><%- checkDate %></dd>
+</div> <!--span6 -->
+
+</div> <!--row-->
+</dl>
+
+<% if( comment ) { %>
+	<div class="well tr-dir"> <%= comment %></div>
+<% } %>
+

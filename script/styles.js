@@ -83,3 +83,28 @@ function showAlert ( type, message, timeout, callback, url )
     else
        document.getElementById('nextURL').value = '';
 }
+
+function get_content_format ( str ) {
+	for ( var i=0, len=str.length; i<len; i++ ) {
+		var charcode = String.charCodeAt( str[i] );
+		if( charcode < 65 ) //Don't decide on numbers, and some punctuations
+			continue;
+		if( charcode < 1570 ) {
+			return {dir:'ltr', lang:'en'};
+		} else {
+			return {dir:'rtl',lang:'fa'};
+		}
+	}
+	
+	return undefined;
+
+}
+
+function set_form_from_content( $elems ) {
+	$elems.each( function(n,e) {
+		var format = get_content_format( $(this).text() );
+		if (format)
+			$(this).attr('dir', format.dir ).addClass('lang-'+format.lang)
+			.removeClass('tr-dir');
+	});
+}

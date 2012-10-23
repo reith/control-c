@@ -1,0 +1,13 @@
+<h2><%-title%></h2>
+<% if (expired) { %>
+<span class='label label-fail'><%* expired %></span>
+<% if (graded) {%>
+<span class='label label-success'><%* graded %></span>
+<% } } else { %>
+<span class='label label-success'><%* open %></span>
+<% } %> 
+<hr>
+<div class='tr-dir well'><%= explain %></div>
+<hr>
+<dl class='dl-horizontal no-bold-dt'>
+<dt><%* wage %> </dt><dd><%= Locale._number(wage) %>

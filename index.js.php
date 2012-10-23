@@ -14,7 +14,6 @@ switch ( basename($_SERVER['REQUEST_URI']) )
   case 'student.exercises': require 'script/student/exercises.js.php'; break;
   case 'teacher.membership_requests': require 'script/teacher/membership_requests.js.php'; break;
   case 'teacher.add_exercise': require 'script/teacher/add_exercise.js.php'; break;
-  
 }
 
 
