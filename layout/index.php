@@ -3,7 +3,7 @@
 <div id="announcementsContainer" class="span5"></div>
 <!-- about -->
 
-<div class="well span7">
+<div class="well span7 tr-dir">
 <h2>What's this?</h2>
 <hr>
 ^C is a judgment system designed with programming courses requirements in mind.<br>
