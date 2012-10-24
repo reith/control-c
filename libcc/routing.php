@@ -143,6 +143,7 @@ class Routing {
 	}
 
 	static private function setLocale( $lang, Context $ctx ) {
+		
 		switch( $lang ) {
 			case 'fa':
 				setlocale(LC_ALL, 'fa_IR'); 
@@ -153,6 +154,7 @@ class Routing {
 			default:
 				return false;
 		}
+		bindtextdomain('cc', 'locale/');
 		$_SESSION['locale'] = $lang; //Don't remove this. things will break.
 		$ctx->setLocaleFormatter( new LocaleFormatter( $lang ) );
 		return true;

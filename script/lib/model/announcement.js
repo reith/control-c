@@ -13,19 +13,6 @@ define(['backbone'], function(Backbone) {
 				case 'ce': return prefix + '/course/' + this.get('subject');
 				case null: return prefix + '/announcement/' + this.get('id');
 			}
-		},
-
-		initialize: function() {
-			var type = this.get('type');
-			if ( type != null ) {
-				var sbj = this.get('subject');
-				switch( type ) {
-					case 'pa': this.set('title', 'Problemset #'+sbj+ ' added'); break;
-					case 'pg': this.set('title', 'Problemset #'+sbj+' graded'); break;
-					case 'ca': this.set('title', 'Course '+sbj+' added'); break;
-					case 'ce': this.set('title', 'Course '+sbh+' closed'); break;
-				}
-			}
 		}
 
 	});

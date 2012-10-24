@@ -43,12 +43,13 @@ class LocaleFormatter {
 
 	public function setDateFormatter( $locale ) {
 		switch( $locale ) {
-			case 'fa': $dfstr = 'fa_IR@calendar=persian'; break;
-			case 'en': $dfstr = 'en_US@calendar=gregorian'; break;
+			case 'fa': $dfcal = 'fa_IR@calendar=persian'; $dfptr = "M/d/yy،‏ H:mm"; break;
+			case 'en': $dfcal = 'en_US@calendar=gregorian'; $dfptr = "M/d/yy H:mm"; break; // Suppress default 12h time format.
 			default: Throw new Exception ("Unknown locale $locale");
 		}
 
-		$this->dateFormatter = new IntlDateFormatter( $dfstr, IntlDateFormatter::SHORT, IntlDateFormatter::SHORT, 'GMT', IntlDateFormatter::TRADITIONAL );
+		$this->dateFormatter = new IntlDateFormatter( $dfcal, IntlDateFormatter::SHORT, IntlDateFormatter::SHORT, 'GMT', IntlDateFormatter::TRADITIONAL );
+		$this->dateFormatter->setPattern($dfptr);
 		return true;
 	}
 

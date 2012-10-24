@@ -27,6 +27,14 @@ EOQ;
 	return $res;
 }
 
+
+/**
+ * get_newest_announcements 
+ * 
+ * @param mixed $count 
+ * @access public
+ * @return resultset of {id, time, possible type, possibe subject, possible title}.
+ */
 function get_newest_announcements( $count ) {
 	$con = DB::instance();
 	$query = <<<'EOT'
@@ -51,4 +59,35 @@ EOT;
 	return $resultset;
 }
 
+/**
+ * formalize_announcements 
+ * 
+ * @param array $announcements 
+ * @param mixed $locale 
+ * @access public
+ * @return formalized (see get_newest_announcements @return) resultset
+ */
+function formalize_announcements ( array $announcements, $locale ) {
+	foreach ( $announcements as &$announcement) {
+	$announcement['date'] = $locale->date($announcement['time']);
+		if( empty( $announcement['title'] ) ) {
+				$subject = $locale->number($announcement['subject']);
+				switch($announcement['type']) {
+					case 'pa': $announcement['title'] =
+						sprintf('%s #%s %s', _('Problemset'), $subject, _('was added') );
+						break;
+					case 'pg': $announcement['title'] =
+						sprintf('%s #%s %s', _('Problemset'), $subject, _('was graded') );
+						break;
+					case 'ca': $announcement['title'] =
+						sprintf('%s #%s %s', _('Course'), $subject, _('was started') );
+						break;
+					case 'ca': $announcement['title'] =
+						sprintf('%s #%s %s', _('Course'), $subject, _('was ended') );
+						break;
+			}
+		}
+	}
+	return $announcements;
+}
 ?>

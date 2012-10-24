@@ -8,7 +8,7 @@
 			printf('[ %s ]</li><li>[ %s ] </li>', Routing::tkel('user', $_SESSION['un'], $_SESSION['id'] ),
 				Routing::tkel('signout', _('Sign out') )
 			);
-		printf('[ %s ]</li>', Routing::tkel('login', _('Login') )
+		printf('[ %s ]', Routing::tkel('login', _('Login') )
 			/*
 			 * Routing::tkel('signup', _('Register') )
 			 */

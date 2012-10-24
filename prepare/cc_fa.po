@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ^C 1.0\n"
 "Report-Msgid-Bugs-To: Ameretat.Reith@gmail.com\n"
-"POT-Creation-Date: 2012-07-27 16:16+0430\n"
-"PO-Revision-Date: 2012-07-27 16:16+0330\n"
+"POT-Creation-Date: 2012-10-25 00:48+0330\n"
+"PO-Revision-Date: 2012-10-25 00:52+0330\n"
 "Last-Translator: Reith <Ameretat.Reith@gmail.com>\n"
 "Language-Team: Persian\n"
 "Language: fa\n"
@@ -28,6 +28,7 @@ msgstr "لطفا صبر کنید..."
 
 #: ../layout/header_div.php:14
 #: ../layout/header_div.php:13
+#: ../layout/header.php:9
 msgid "Sign out"
 msgstr "خروج"
 
@@ -37,6 +38,10 @@ msgstr "خروج"
 #: ../layout/header_div.php:15
 #: ../forms/common/signin.php:14
 #: ../forms/common/signin.php:30
+#: ../layout/account/login_input.php:14
+#: ../layout/account/login_input.php:30
+#: ../layout/header.php:11
+#: ../action/account/login_input.php:2
 msgid "Login"
 msgstr "ورود"
 
@@ -47,6 +52,7 @@ msgstr "ثبت نام"
 
 #: ../layout/header_div.php:32
 #: ../layout/header_div.php:31
+#: ../layout/header.php:25
 msgid "Server time"
 msgstr "زمان سرور"
 
@@ -55,6 +61,7 @@ msgid "Online Compiler"
 msgstr "کمپایلر آنلاین"
 
 #: ../layout/left-menu.php:24
+#: ../action/exercise/index.php:2
 msgid "Exercises"
 msgstr "تمرینات"
 
@@ -183,6 +190,7 @@ msgstr "این صفحه در مرورگر شما به خوبی نمایش داد
 #: ../forms/common/signup.php:62
 #: ../forms/common/signin.php:34
 #: ../forms/common/signin.php:33
+#: ../layout/account/login_input.php:33
 msgid "Sign up"
 msgstr "ثبت نام"
 
@@ -205,12 +213,14 @@ msgstr "پست الکترونیک"
 #: ../forms/common/signup.php:42
 #: ../forms/common/signin.php:17
 #: ../forms/common/signin.php:16
+#: ../layout/account/login_input.php:16
 msgid "Username"
 msgstr "نام کاربری"
 
 #: ../forms/common/signup.php:46
 #: ../forms/common/signin.php:19
 #: ../forms/common/signin.php:18
+#: ../layout/account/login_input.php:18
 msgid "Password"
 msgstr "گذرواژه"
 
@@ -223,6 +233,7 @@ msgid "Group"
 msgstr "گروه کاربری"
 
 #: ../forms/common/signup.php:55
+#: ../layout/exercise/index.php:13
 msgid "Student"
 msgstr "دانشجو"
 
@@ -232,6 +243,7 @@ msgstr "شرکت کننده در مسابقه"
 
 #: ../forms/common/signup.php:57
 #: ../libcc/student/courses.php:20
+#: ../layout/exercise/index.php:21
 msgid "Teacher"
 msgstr "استاد"
 
@@ -241,21 +253,25 @@ msgstr "برگزار کننده مسابقه"
 
 #: ../forms/common/signin.php:22
 #: ../forms/common/signin.php:21
+#: ../layout/account/login_input.php:21
 msgid "Please enter the code in the image"
 msgstr "لطفا کد نمایش داده شده در تصویر را وارد کنید"
 
 #: ../forms/common/signin.php:34
 #: ../forms/common/signin.php:33
+#: ../layout/account/login_input.php:33
 msgid "Have not any account yet?"
 msgstr "هنوز حساب باز نکرده‌اید؟"
 
 #: ../forms/common/signin.php:35
 #: ../forms/common/signin.php:34
+#: ../layout/account/login_input.php:34
 msgid "Forgot your password?"
 msgstr "گذرواژه حساب‌تان را فراموش کرده‌اید؟"
 
 #: ../forms/common/signin.php:35
 #: ../forms/common/signin.php:34
+#: ../layout/account/login_input.php:34
 msgid "Password recovery"
 msgstr "بازیابی گذرواژه"
 
@@ -515,6 +531,8 @@ msgstr "تمرین"
 #: ../libcc/student/exercises.php:33
 #: ../libcc/student/courses.php:20
 #: ../libcc/student/exercises.php:29
+#: ../action/announcement/index.php:19
+#: ../action/announcement/index.php:16
 msgid "Course"
 msgstr "درس"
 
@@ -565,54 +583,67 @@ msgid "Compiler messages"
 msgstr "پیغام‌های کمپایلر"
 
 #: ../libcc/error_codes.php:18
+#: ../libcc/error_codes.php:20
 msgid "You must login again"
 msgstr "شما باید دوباره وارد شوید"
 
 #: ../libcc/error_codes.php:19
+#: ../libcc/error_codes.php:22
 msgid "You have NOT sufficient privilege to do this"
 msgstr "مجوز دسترسی شما برای این‌کار کافی نیست"
 
 #: ../libcc/error_codes.php:20
+#: ../libcc/error_codes.php:23
 msgid "Data received is invalid"
 msgstr "اطلاعات معتبر دریافت نشد"
 
 #: ../libcc/error_codes.php:21
+#: ../libcc/error_codes.php:24
 msgid "Security Code you entered is not true"
 msgstr "کد امنیتی صحیح وارد نشده است"
 
 #: ../libcc/error_codes.php:22
+#: ../libcc/error_codes.php:25
 msgid "Error in Database connection"
 msgstr "در برقراری ارتباط با پایگاه داده خطا رخ داد"
 
 #: ../libcc/error_codes.php:23
+#: ../libcc/error_codes.php:26
 msgid "Please fill the form"
 msgstr "فرم را پر کنید"
 
 #: ../libcc/error_codes.php:24
+#: ../libcc/error_codes.php:27
 msgid "Password is not same as repeated password"
 msgstr "کلمه عبور با تکرار آن مطابقت ندارد."
 
 #: ../libcc/error_codes.php:25
+#: ../libcc/error_codes.php:28
 msgid "Error in Database queries"
 msgstr "متاسفانه در اجرای کدهای پایگاه داده خطا رخ داد"
 
 #: ../libcc/error_codes.php:25
+#: ../libcc/error_codes.php:28
 msgid "Error had been logged and probaby be fixed soon"
 msgstr "خطا ثبت شد و احتمالا به زودی برطرف می‌شود"
 
 #: ../libcc/error_codes.php:26
+#: ../libcc/error_codes.php:29
 msgid "Authentication failed"
 msgstr "مشخصات صحیح نیست"
 
 #: ../libcc/error_codes.php:27
+#: ../libcc/error_codes.php:30
 msgid "No change made"
 msgstr "عملیاتی انجام نشد"
 
 #: ../libcc/error_codes.php:28
+#: ../libcc/error_codes.php:31
 msgid "Exercise file exists"
 msgstr "فایل تمرینات موجود است"
 
 #: ../libcc/error_codes.php:29
+#: ../libcc/error_codes.php:32
 msgid "Your account had been locked"
 msgstr "اکانت کاربری شما قفل شده است"
 
@@ -745,11 +776,99 @@ msgstr "دریافت نشده"
 msgid "Doesn't graded yet"
 msgstr "تصحیح نشده"
 
-#~ msgid "Signle Exercises"
-#~ msgstr "تمرینات مجزا"
+#: ../layout/exercise/search.php:56
+msgid "Login to see more options according to your membership."
+msgstr "وارد شوید تا گزینه‌های مخصوص با مجوز کاربری خود را مشاهده کنید."
 
-#~ msgid "Exercies"
-#~ msgstr "تمرینات"
+#: ../layout/exercise/index.php:2
+msgid "This is help page for exercises."
+msgstr "این صغحه کمک در مورد تمرینات است."
 
-#~ msgid "Finish"
-#~ msgstr "پایان"
+#: ../layout/exercise/index.php:5
+msgid "You can search for exerises from here: "
+msgstr "از این‌جا می‌توانید به دنبال تمرینات بگردید:"
+
+#: ../layout/exercise/index.php:14
+msgid "You can see just registered courses"
+msgstr "شما می‌توانید فقط تمرین‌های دروس عضو شده را ببینید."
+
+#: ../layout/exercise/index.php:15
+msgid "You can see just sent answer"
+msgstr ""
+
+#: ../layout/exercise/index.php:22
+msgid "You can see your own courses "
+msgstr "شما می‌توانید تمرین‌های دروس خود را ببینید"
+
+#: ../libcc/error_codes.php:21
+msgid "The page yo requested is not found"
+msgstr "صفحه مورد نظر پیدا نشد"
+
+#: ../action/exercise/search_post.php:21
+#: ../action/exercise/search_post.php:41
+msgid "Select at least one course."
+msgstr "حداقل یک درس انتخاب کنید."
+
+#: ../action/exercise/search_post.php:54
+msgid "You must select at graded or not graded exercises"
+msgstr ""
+
+#: ../action/exercise/search_input.php:3
+msgid "Exercise Search"
+msgstr "جستجوی تمرین"
+
+#: ../action/announcement/index.php:10
+#: ../action/announcement/index.php:13
+#: ../action/problemset/view.php:29
+msgid "Problemset"
+msgstr "سری تمرین"
+
+#: ../action/announcement/index.php:10
+#: ../action/announcement/index.php:16
+msgid "added"
+msgstr "اضافه شد"
+
+#: ../action/announcement/index.php:13
+msgid "graded"
+msgstr "تصحیح شده"
+
+#: ../action/announcement/index.php:16
+msgid "New course"
+msgstr "درس جدید"
+
+#: ../action/announcement/index.php:19
+msgid "ended"
+msgstr "خاتمه یافت"
+
+#: ../action/announcement/index.php:26
+msgid "Announcements"
+msgstr "اعلانات"
+
+#: ../action/index.php:2
+msgid "Judging till breakpoint"
+msgstr ""
+
+#: ../index.php:79
+msgid "Loading"
+msgstr "بارگذاری"
+
+#: ../action/announcement/index.php:10
+msgid "was added"
+msgstr "اضافه شد"
+
+#: ../action/announcement/index.php:13
+msgid "was graded"
+msgstr "تصحیح شد"
+
+#: ../action/announcement/index.php:16
+msgid "was started"
+msgstr "شروع شد"
+
+#: ../action/announcement/index.php:19
+msgid "was ended"
+msgstr "خاتمه یافت"
+
+#: ../action/announcement/index.php:26
+msgid "Announcements Board"
+msgstr "صفحه اعلانات"
+
