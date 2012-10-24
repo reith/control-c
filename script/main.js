@@ -10,6 +10,7 @@ var require_cfg = {
 	paths: {
 		'app': 'app',
 		'jquery': 'lib/jquery/jquery',
+		'livequery': 'lib/jquery/jquery.livequery-min',
 		'underscore': 'lib/underscore/underscore',
 		'backbone': 'lib/backbone/backbone',
 		'highcharts': 'lib/highcharts/highcharts-min'
@@ -26,6 +27,9 @@ var require_cfg = {
 			deps: ['jquery'],
 			exports: 'Highcharts'
 		},
+		'livequery': {
+			deps: ['jquery']
+		},
 		'app': {
 			exports: 'App'
 		}
@@ -37,7 +41,7 @@ if (typeof require_pre_cfg == 'object')
 		require_cfg[attr] = require_pre_cfg[attr];
 
 requirejs.config(require_cfg);
-require( ['jquery'], function($) {
+require( ['jquery', 'livequery'], function($) {
 
 	$('div.tr-dir').livequery(function() {
 		set_form_from_content( $(this) );

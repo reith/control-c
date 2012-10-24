@@ -47,10 +47,7 @@ EOT;
 			);
 	DB::bindColumns( $stmt, $types, $announcement );
 	$resultset = array();
-	while( $stmt->fetch( PDO::FETCH_BOUND ) ) {
-		$resultset[] = unserialize(serialize($announcement));
-	}
-
+	DB::fetchAllBound($stmt, $announcement, $resultset);
 	return $resultset;
 }
 
