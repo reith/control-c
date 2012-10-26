@@ -8,7 +8,12 @@ if( !$rd || !isset($rd['id'] ) ) {
 	redirect404( $env );
 	return;
 }
+
 $announcement = get_custom_announcement( $rd['id'] );
+if($env->isJSON()) {
+	die(json_encode($announcement));
+}
+
 if( !is_null($announcement['id'] ) ) {
 	$t['res'] = $announcement;
 	$env->setData('title', $announcement['title']);

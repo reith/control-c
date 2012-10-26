@@ -23,7 +23,7 @@
 require(['jquery', 'lib/view/announcementsColumn'],
 function($, AnnouncementsColumn) {
 
-	var page = new AnnouncementsColumn( <?= json_encode($t['announcements']); ?>,
-		$('#announcementsContainer') );
+	var page = new AnnouncementsColumn( {collection: <?= json_encode($t['announcements']); ?>, archive: true} );
+	$('#announcementsContainer').html(page.render().$el);
 });
 </script>

@@ -6,7 +6,10 @@ define( function() {
 	return {
 		root: {
 			'ag': 'Average grade',
+			'ar': 'Archive',
 			'course': 'Course' ,
+			'cation': 'Courses added',
+			'cetion': 'Courses ended',
 			'cdate': 'Creation Date',
 			'date' : 'Date',
 			'deadline': 'Deadline',
@@ -19,8 +22,11 @@ define( function() {
 			'name' : 'Name',
 			'number' : 'Number',
 			'open': 'Open',
+			'o': 'Other',
 			'optionalset': 'Optional problemset',
 			'pl': 'Programming Language',
+			'pgtion': 'Problemset grading',
+			'pation': 'New problemsets',
 			'problemset' : 'Problemset',
 			'psc': 'Number of Problemsets',
 			'setnum': 'Set number',

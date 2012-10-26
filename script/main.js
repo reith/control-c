@@ -71,7 +71,6 @@ require( ['jquery', 'livequery'], function($) {
 				404: function() { showError('Error 404') }
 			},
 			complete: function() {
-				console.log('complete called');
 				$loading.delay(500).slideUp('fast');
 				},
 			fail: function() { console.log('fail called'); },
