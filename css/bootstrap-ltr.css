@@ -3127,7 +3127,7 @@ header {
   position: fixed;
   top: 0px;
   text-align: right;
-  background: #111612 url("../img/cc-120x50-logo.png") no-repeat;
+  background: #111612 url("/img/cc-120x50-logo.png") no-repeat;
   height: 60px;
   width: 100%;
   color: black;
