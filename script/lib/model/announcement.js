@@ -1,9 +1,5 @@
 define(['backbone'], function(Backbone) {
 	var Announcement = Backbone.Model.extend({
-		defaults: {
-			type: null
-		},
-
 		hide: function() {
 			this.trigger('hide');
 		},

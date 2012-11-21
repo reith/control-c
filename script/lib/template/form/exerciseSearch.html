@@ -1,0 +1,46 @@
+<form class="form-horizontal" method="post">
+
+<div class="control-group">
+<label class="control-label" for="courseSelect">Course</label>
+<div class="controls">
+<select name="courses[]" id="courseSelect" multiple="multiple">
+</select>
+<label class="checkbox"><input type="checkbox" value="jjc">Select joined courses</label>
+<label class="checkbox"><input type="checkbox" value="jjc">Select My Own courses</label>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label">Grading status</label>
+<div class="controls">
+<label class="checkbox inline"><input value="1" name="ge" checked="1" type="checkbox">Graded exercies.</label>
+<label class="checkbox inline"><input value="1" name="nge" checked="1" type="checkbox">Not graded exercies.</label>
+</div>
+</div>
+
+<div class="control-group">
+<label class="control-label">Content</label>
+<div class="controls" id="contentSeaech">
+<input id="keywordsInput" placeholder="Some keywords seperated by space" type="text" name="keywords">
+<div>
+<label class="inline checkbox"><input name="skt" type="checkbox" checked="1">Title</label>
+<label class="inline checkbox"><input name="ske" type="checkbox">Explaination</label>
+</div>
+</div>
+</div>
+<hr>
+
+<div class="control-group">
+<label class="control-label">Sort result by</label>
+<div class="controls">
+<label class="radio inline"><input name="sort" value="ed" type="radio">Deadline</label>
+<label class="radio inline"><input name="sort" value="ea" type="radio">Added date.</label>
+<label class="radio inline"><input checked=1 name="sort" value="et" type="radio">Title</label>
+</div>
+</div>
+
+<hr>
+
+<button type="submit" class="btn btn-info">Search</button>
+</form>
+

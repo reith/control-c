@@ -71,7 +71,8 @@ require(['app', 'jquery'], function( App, $ ){
 });
 </script>
 
-<header><?php require 'layout/header.php'; ?></header>
+<?php require 'layout/header.php'; ?>
+
 <div id="alert"></div>
 
 <div class="container-fluid" id="main">
@@ -99,7 +100,41 @@ require(['app', 'jquery'], function( App, $ ){
  */
 ?>
 
+<!--
 <div id="nextURL" style="display:none;"></div>
 </body>
 
-</html>
+<div style="
+z-index: 0px;
+background-color: gray;
+">
+<div class="row-fluid" style="
+padding: 0px;
+margin: 0px;
+direction: ltr;
+">
+
+	<div class="span4">
+		Powered bye ^C. version 2.3.3;
+	</div>
+
+	<div class="span4">
+		<h3>Sitmap</h3>
+		<ul>
+			<li>Exercise</li>(Help | Search | Index)
+			<li>Announcements</li>
+		</ul>
+	</div>
+
+
+	<div class="span4">
+		<ul>
+			<li>xxx</li>
+			<li>yyy</li>
+		</ul>
+	</div>
+
+</div>
+</div>
+-->
+</div>

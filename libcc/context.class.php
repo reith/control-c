@@ -5,12 +5,23 @@ class Context
 	private $data;
 	private $action;
 	private $layout;
+	private $content; // output buffer
 	private $localeFormatter;
 	private $_GET = array();
 
 	public function __construct( $context ) {
 		if (! is_null($context) )
 			$this->setContext( $context );
+	}
+
+	public function put( $data ) {
+		$this->content .= $data;
+	}
+
+	public function terminate() {
+		$this->setHeaders();
+		if( $this->content )
+			die($this->content);
 	}
 
 	public function setLocaleFormatter( LocaleFormatter $lf ) {

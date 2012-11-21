@@ -28,9 +28,12 @@ define( function() {
 			'pgtion': 'Problemset grading',
 			'pation': 'New problemsets',
 			'problemset' : 'Problemset',
+			'rgs': 'Register',
 			'psc': 'Number of Problemsets',
+			'sgin': 'Login',
 			'setnum': 'Set number',
 			'stc': 'Number of Students',
+			'svt': 'Server Time',
 			'tchr' : 'Teacher',
 			'wage' : 'Wage'
 		},

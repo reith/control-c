@@ -7,7 +7,7 @@ function(Backbone, _, Announcement) {
 		render: function() {
 			if( this.model.get('title') ) {
 				this.$el.html(_.template(
-					'<%- title %><br><span style="font-size: smaller;color: #C8C8C8;"><%- date %></span> | <a href="<%- url %>"><i class="icon-fullscreen"> </i></a>',
+					'<a href="<%- url %>"><%- title %></a><br><span style="font-size: smaller;color: #C8C8C8;"><%- date %></span>',
 					_.extend( this.model.toJSON(), {url: this.model.url()} )
 				));
 			}
@@ -18,7 +18,7 @@ function(Backbone, _, Announcement) {
 		initialize: function() {
 			this.model.bind('hide', this.hide, this);
 			this.model.bind('show', this.show, this);
-			if( this.options.clickable ) this.delegateEvents({'click': function() {this.model.select()}});
+			if( this.options.clickable ) this.delegateEvents({'click': function(e) { this.model.select(); e.preventDefault() } });
 		},
 
 		hide: function() {
@@ -27,7 +27,7 @@ function(Backbone, _, Announcement) {
 
 		show: function() {
 			this.$el.show();
-		}
+		},
 
 	});
 	return View;

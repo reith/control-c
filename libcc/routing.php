@@ -48,6 +48,9 @@ class Routing {
 					)
 				)
 			),
+			'stats' => array (
+				'GET' => 'stats/view',
+			),
 			/*
 			 * 'signup' => array (
 			 *     'GET' => 'signup/view_form',

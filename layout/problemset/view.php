@@ -35,6 +35,7 @@ function( Backbone, Set, SetView, Router ) {
 			if( this.set.get('graded') ) {
 				setTimeout(this.makeCharts, 2000);
 			}
+			Backbone.history.start({pushState: true});
 		},
 
 		minimizeProfile: function($container) {

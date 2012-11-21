@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ^C 1.0\n"
 "Report-Msgid-Bugs-To: Ameretat.Reith@gmail.com\n"
-"POT-Creation-Date: 2012-10-25 00:48+0330\n"
-"PO-Revision-Date: 2012-10-25 00:52+0330\n"
+"POT-Creation-Date: 2012-11-15 13:02+0330\n"
+"PO-Revision-Date: 2012-11-15 13:10+0330\n"
 "Last-Translator: Reith <Ameretat.Reith@gmail.com>\n"
 "Language-Team: Persian\n"
 "Language: fa\n"
@@ -806,10 +806,13 @@ msgstr "صفحه مورد نظر پیدا نشد"
 
 #: ../action/exercise/search_post.php:21
 #: ../action/exercise/search_post.php:41
+#: ../action/exercise/search_post.php:25
+#: ../action/exercise/search_post.php:45
 msgid "Select at least one course."
 msgstr "حداقل یک درس انتخاب کنید."
 
 #: ../action/exercise/search_post.php:54
+#: ../action/exercise/search_post.php:58
 msgid "You must select at graded or not graded exercises"
 msgstr ""
 
@@ -845,6 +848,7 @@ msgid "Announcements"
 msgstr "اعلانات"
 
 #: ../action/index.php:2
+#: ../action/index.php:10
 msgid "Judging till breakpoint"
 msgstr ""
 
@@ -869,6 +873,39 @@ msgid "was ended"
 msgstr "خاتمه یافت"
 
 #: ../action/announcement/index.php:26
+#: ../action/announcement/index.php:8
 msgid "Announcements Board"
 msgstr "صفحه اعلانات"
+
+#: ../layout/stats/summary.php:9
+msgid "Current system statistics"
+msgstr "آمار فعلی سیستم"
+
+#: ../prepare/dict.php:6
+msgid "User"
+msgstr "کاربر"
+
+#: ../layout/index.php:11
+msgid "^C is a judgment system designed with programming courses requirements in mind"
+msgstr "کنترل‌سی، سیستم تصحیح خودکار و مدیریت تمرینات دروس برنامه‌سازی است که با در نظر گرفتن نیازمندی‌های این دروس ساخته شده"
+
+#: ../layout/index.php:15
+msgid "Using useful options to configure grading strictness"
+msgstr "استفاده از تنظیمات مفید برای تعیین دقت تصحیح"
+
+#: ../layout/index.php:16
+msgid "Fuzzy Grading"
+msgstr "نمره‌دهی فازی"
+
+#: ../layout/index.php:17
+msgid "Easy and Structural course management"
+msgstr "مدیریت آسان و کارآمد دروس"
+
+#: ../layout/index.php:18
+msgid "Easy reporting and charting"
+msgstr "امکان گزارش‌دهی و نمودارکشی آسان"
+
+#: ../layout/index.php:22
+msgid "More about ^C"
+msgstr "اطلاعات بیشتر..."
 

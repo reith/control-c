@@ -11,7 +11,8 @@ if( !$rd || !isset($rd['id'] ) ) {
 
 $announcement = get_custom_announcement( $rd['id'] );
 if($env->isJSON()) {
-	die(json_encode($announcement));
+	$env->put( json_encode($announcement) );
+	$env->terminate();
 }
 
 if( !is_null($announcement['id'] ) ) {
@@ -21,4 +22,5 @@ if( !is_null($announcement['id'] ) ) {
 } else {
 	redirect404( $env );
 }
+
 ?>

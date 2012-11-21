@@ -3,6 +3,10 @@
  * FIXIT: use bindColumns. id and other integer values treathed as string
  */
 
+if(! $env->isJSON()) {
+	redirect404($env);
+}
+
 require_once 'libcc/query.class.php';
 require_once 'libcc/db.class.php';
 

@@ -6,7 +6,7 @@ function(Backbone, Announcement, AnnouncementItemView, Dictionary) {
 			var Collection = Backbone.Collection.extend({ model: Announcement });
 			this.announcements = new Collection(this.collection);
 			if( this.options.selectable ) {
-				this.$monitor = this.options.$monitor.addClass('wall');
+				this.$monitor = this.options.$monitor;
 				this.announcements.on('selected', function(id) {
 					this.$monitor.html( this.announcements.get( id ).get('body') ).show();
 				}, this);
@@ -28,7 +28,7 @@ function(Backbone, Announcement, AnnouncementItemView, Dictionary) {
 		},
 
 		render: function(options) {
-			this.$el = $('<div class="well item-container"/>');
+			this.$el = $('<div class="item-container"/>');
 			this.announcements.each(function(model) {
 				var view = new AnnouncementItemView({
 					'model': model,

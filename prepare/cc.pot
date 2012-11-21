@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ^C 1.0\n"
 "Report-Msgid-Bugs-To: Ameretat.Reith@gmail.com\n"
-"POT-Creation-Date: 2012-10-25 00:48+0330\n"
+"POT-Creation-Date: 2012-11-15 13:02+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -722,10 +722,11 @@ msgid "The page yo requested is not found"
 msgstr ""
 
 #: ../action/exercise/search_post.php:21 ../action/exercise/search_post.php:41
+#: ../action/exercise/search_post.php:25 ../action/exercise/search_post.php:45
 msgid "Select at least one course."
 msgstr ""
 
-#: ../action/exercise/search_post.php:54
+#: ../action/exercise/search_post.php:54 ../action/exercise/search_post.php:58
 msgid "You must select at graded or not graded exercises"
 msgstr ""
 
@@ -758,7 +759,7 @@ msgstr ""
 msgid "Announcements"
 msgstr ""
 
-#: ../action/index.php:2
+#: ../action/index.php:2 ../action/index.php:10
 msgid "Judging till breakpoint"
 msgstr ""
 
@@ -782,6 +783,38 @@ msgstr ""
 msgid "was ended"
 msgstr ""
 
-#: ../action/announcement/index.php:26
+#: ../action/announcement/index.php:26 ../action/announcement/index.php:8
 msgid "Announcements Board"
+msgstr ""
+
+#: ../layout/stats/summary.php:9
+msgid "Current system statistics"
+msgstr ""
+
+#: ../prepare/dict.php:6
+msgid "User"
+msgstr ""
+
+#: ../layout/index.php:11
+msgid "^C is a judgment system designed with programming courses requirements in mind"
+msgstr ""
+
+#: ../layout/index.php:15
+msgid "Using useful options to configure grading strictness"
+msgstr ""
+
+#: ../layout/index.php:16
+msgid "Fuzzy Grading"
+msgstr ""
+
+#: ../layout/index.php:17
+msgid "Easy and Structural course management"
+msgstr ""
+
+#: ../layout/index.php:18
+msgid "Easy reporting and charting"
+msgstr ""
+
+#: ../layout/index.php:22
+msgid "More about ^C"
 msgstr ""
