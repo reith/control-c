@@ -5,7 +5,6 @@
 
 
 var require_cfg = {
-	urlArgs: "bust=" + (new Date()).getTime(),
 	baseUrl: '/script/',
 	paths: {
 		'app': 'app',
