@@ -75,7 +75,7 @@ function showAlert ( type, message, timeout, callback, url )
             $('#alert').css({'background-color': '#c41e1e', 'color': 'white'}).animate({'height':'42px'}, 'slow', function () { alertAnimatePreClose(timeout, callback); } );
             break;
         default:
-            $('#alert').css({'background-color': '#111111', 'color': 'yellow'}).animate({'height':'42px'}, 'slow', function () { alertAnimatePreClose(timeout, callback); });
+            $('#alert').css({'background-color': '#238bbd', 'color': 'yellow'}).animate({'height':'42px'}, 'slow', function () { alertAnimatePreClose(timeout, callback); });
     }
     
     if (url)

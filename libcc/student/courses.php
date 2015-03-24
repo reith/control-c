@@ -1,6 +1,6 @@
 <?php
 // REITH: VIEW COURSE PROCESS FOR STUDENTS
-require 'libcc/formating.php';
+require_once 'libcc/general.functions.php';
 signinFirst ('s', true);
 
 global $errors;
@@ -22,20 +22,21 @@ if (($dbRes=mysqlres("getCoursesList", "--sdd", $view, $sort, $order, $from, $li
       $output['th'].=sprintf('<th>%s</th>', _('Registeration') );
 
     while ($row=$dbRes->fetch_row()) {
+      $row[3] = $env->locale()->date($row[3], 'YYYY');
       $row[4] = $row[4] ? _('Closed'):_('Open');
 
       if ( $view=='all' )
-	switch($row[5]) {
-            case 'w': $row[5]=_('Waiting for verification'); break;
-            case 'j': $row[5]=_('Registered'); break;
-	    case 'b': $row[5]=_('Doesn\'t verified'); break;
-	    default: $row[5]=_('Doesn\'t Requested'); break;
+	switch($row[6]) {
+            case 'w': $row[6]=_('Waiting for verification'); break;
+            case 'j': $row[6]=_('Registered'); break;
+	    case 'b': $row[6]=_('Doesn\'t verified'); break;
+	    default: $row[6]=_('Doesn\'t Requested'); break;
           }
 
 
-    $r=array( 'crsid'=>$row[0], 'crsn'=>$row[1], 'tchrn'=>$row[2], 'tchrid'=>$row[6], 'yr'=>$row[3], 'stat'=>$row[4] );
+    $r=array( 'crsid'=>$row[0], 'crsn'=>$row[1], 'tchrn'=>$row[2], 'tchrid'=>$row[5], 'yr'=>$row[3], 'stat'=>$row[4] );
     if ($view == 'all')
-      $r['rgst'] = $row[5];
+      $r['rgst'] = $row[6];
 
     $output['tr'][]=array('r'=>$r, 'type'=>$view );
     }

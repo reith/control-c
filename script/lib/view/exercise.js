@@ -9,6 +9,7 @@ function(Backbone, _, tmpl, Dict) {
 
 		render: function() {
 			this.$el.html(_.gtemplate(tmpl, this.model.toJSON(), Dict));
+			return this;
 		}
 	});
 

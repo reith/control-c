@@ -9,6 +9,7 @@
 
 
 <script type="text/javascript">
+require(['jquery'], function($) {
     $('#password_recovery_form').submit( function(e) {
         e.preventDefault();
         $.ajax({data: $('#password_recovery_form').serialize(), dataType: 'json', url: '<?=__url__?>/libcc/account/password_recovery.php',  type: 'POST',
@@ -20,4 +21,5 @@
             }
         });
     });
+});
 </script>

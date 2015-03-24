@@ -1,10 +1,10 @@
 var expanded=true;
 $(document).ready(function() {
-  $txtsrc=$('#txtsrc');
-  $isrc=$('#isrc');
-  $sendFile=$('#sendFile');
-  $result=$('#result');
-  $fsrc=$('#fsrc');
+  var $txtsrc = $('#txtsrc');
+  var $isrc = $('#isrc');
+  var $sendFile= $('#sendFile');
+  var $result = $('#result');
+  var $fsrc = $('#fsrc');
   $result.hide();
 
   $txtsrc.keypress(function(e) {
@@ -23,8 +23,8 @@ $(document).ready(function() {
     $txtsrc.show();
   });
   $fsrc.click(function () {
-    $('#sendFile').attr({disabled: 0});
-    $('#txtsrc').hide();
+    $sendFile.removeAttr('disabled');
+    $txtsrc.hide();
   });
   $('#ff').submit(function(e) {
     $('#loading').removeClass('hidden');
@@ -37,7 +37,9 @@ $(document).ready(function() {
 	  $txtsrc.animate({height: '-=200'}, 50);
 	  expanded=false;
 	}
-	$result.html(frm.document.body.innerHTML).show();
+	// $result.html(frm.document.body.innerHTML).show();
+	// above should work and was working, now it returns encoded text, don't know why
+	$result.html($(frm.document.body).text()).show();
 	clearInterval(timer);
       }
     }, 100);

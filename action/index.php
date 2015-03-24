@@ -1,6 +1,6 @@
 <?php
 require_once 'action/stats/view.php';
-//XXX: overriade layout and title setted bye above require
+//XXX: override layout and title setted bye above require
 
 require_once 'libcc/announcement.php';
 $t['announcements'] = formalize_announcements(

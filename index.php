@@ -9,8 +9,6 @@ require_once 'libcc/context.class.php';
 // Now start session
 require_once 'libcc/session.php';
 
-require_once 'libcc/general.functions.php';
-
 // if (! isset($_SESSION['context']) )
 //	$_SESSION['context'] = new Context('http');
 
@@ -29,6 +27,7 @@ if( $env->getAction() ) {
  	$env->setHeaders();
 	die();
  }
+
 ?>
 <!DOCTYPE html>
 <html lang="<?=$env->locale()->name()?>">
@@ -41,6 +40,17 @@ if( $env->getAction() ) {
 
 <!-- load javascript files don't want to be loaded bye requireJS -->
 <script type="text/javascript" src="/script/styles.js"></script>
+
+<?php
+if ($env->isLegacy()) {
+?>
+<!-- <script type="text/javascript" src="/script/ajax.js"></script> -->
+<script type="text/javascript" src="/script/jquery-min.js"></script>
+<script type="text/javascript" src="/script/popup.js"></script>
+<!-- <script type="text/javascript" src="/script/locale.js.php"></script> -->
+<?php
+}
+?>
 <!-- -->
 
 <!-- requireJS pre load config -->
@@ -70,71 +80,38 @@ require(['app', 'jquery'], function( App, $ ){
 	)); ?>);
 });
 </script>
-
 <?php require 'layout/header.php'; ?>
 
 <div id="alert"></div>
 
-<div class="container-fluid" id="main">
-
-<div id="loading"><?=_('Loading')?><img src="/layout/img/loading.gif" alt="loading..."/></div>
-<!--
-<?php // require "./layout/left-menu.php";?>
--->
-
-<!-- <div class="alert">This is calendar!</div> -->
-
-<div class="row-fluid">
-<?php is_null($env->getLayout() ) || require './layout/'.$env->getLayout().'.php'; ?>
-</div>
-
-</div>
-
 <?php
-/*
- * $fp = fopen('version.txt', 'r');
- * $version = fgets( $fp, 1024 );
- * $date = fgets( $fp, 1024 );
- * fclose($fp);
- * printf( '<footer >Powered by <a style="color:#ffd83d" href="%s">^C</a> v%s</footer>',"http://12eith.com/code/%5EC/", $version);
- */
-?>
+if ($env->isLegacy()) { ?>
+	<div id="main">
+	<div id="loading"><?=_("Please wait...")?><img src="/layout/img/loading.gif" alt="loading..."/></div>
+	<div class="container">
+		<div class="span-4">
+		<?php require "./layout/left-menu.php" ?>
+		</div>
 
-<!--
+	<div class="rightContainer span-8" ID="activeBox" style="padding:20px; width:660px;">
+		<?php require $env->getLayout(); ?>
+	</div>
+	</div>
+
+<?php } else { ?>
+
+	<div class="container-fluid" id="main">
+	<div id="loading"><img src="/layout/img/loading.gif" alt="loading..."/></div>
+
+
+	<div class="row-fluid">
+	<?php is_null($env->getLayout() ) || require './layout/'.$env->getLayout().'.php'; ?>
+	</div>
+<?php } ?>
+
+</div> <!-- #main, both ways -->
+
 <div id="nextURL" style="display:none;"></div>
+
 </body>
-
-<div style="
-z-index: 0px;
-background-color: gray;
-">
-<div class="row-fluid" style="
-padding: 0px;
-margin: 0px;
-direction: ltr;
-">
-
-	<div class="span4">
-		Powered bye ^C. version 2.3.3;
-	</div>
-
-	<div class="span4">
-		<h3>Sitmap</h3>
-		<ul>
-			<li>Exercise</li>(Help | Search | Index)
-			<li>Announcements</li>
-		</ul>
-	</div>
-
-
-	<div class="span4">
-		<ul>
-			<li>xxx</li>
-			<li>yyy</li>
-		</ul>
-	</div>
-
-</div>
-</div>
--->
-</div>
+</html>

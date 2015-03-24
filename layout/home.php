@@ -1,12 +1,14 @@
 <!--REITH: USER HOMEPEAGE-->
 <?php
+require_once 'libcc/general.functions.php';
+
 signInFirst();
 
 require 'libcc/db.class.php';
 
 if (hasPrivilege('s'))
 {
-    echo _('Student Panel').'<hr />';
+  echo _('Student Panel').'<hr />';
   $con=DB::instance();
   if (!$con)
      errorLogger("DB", $con->error, true);
@@ -26,10 +28,12 @@ if (hasPrivilege('s'))
   while ($stmt->fetch(PDO::FETCH_BOUND))
   {
     if ($grade>0)
-      printf ("شما تاکنون نمره %s از درس <a href='%s'>%s</a> اخذ کرده‌اید.<br />", fa_number($grade), Routing::genURL('course').'/'.$courseId, $courseName);
+      printf ("شما تاکنون نمره %s از درس <a href='%s'>%s</a> اخذ کرده‌اید.<br />", $env->locale()->number($grade), Routing::genURL('course').'/'.$courseId, $courseName);
     else
-      printf ("شما هنوز نمره‌ای از درس <a href='%s'>%s</a> اخذ نکرده‌اید.<br />", Routing::getURL('course').'/'.$courseId, $courseName);
+      printf ("شما هنوز نمره‌ای از درس <a href='%s'>%s</a> اخذ نکرده‌اید.<br />", Routing::genURL('course').'/'.$courseId, $courseName);
   }
+	$stmt->closeCursor();
+	
 }
 
 if (hasPrivilege('t'))

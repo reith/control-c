@@ -1,7 +1,7 @@
 <?php
-require './config.php';
-require './general.functions.php';
-require './formating.php';
+require_once 'libcc/config.php';
+require_once 'libcc/general.functions.php';
+require_once 'libcc/formating.php';
 
 $msg=<<<EOF
 پروژه‌های مبانی برنامه‌سازی مقدماتی و پیشرفته روز سه‌شنبه ۱۲ بهمن تحویل گرفته می‌شوند. دانشجویان درس برنامه‌سازی پیشرفته باید از ساعت ۸ تا ۱۱ مراجعه کنند. مکان تحویل پروژه طبقه‌ی دوم سایت مرکزی می‌باشد. طبق زمان‌بندی ارائه شده حضور پیدا کنید؛ پروژه‌ای خارج از نوبت تحویل گرفته نمی‌شود. حضور تمام اعضای گروه برای ارائه‌ی پروژه الزامیست.

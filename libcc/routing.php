@@ -32,6 +32,7 @@ class Routing {
 				)
 			),
 			'user' => array (
+				'GET' => 'asdsad',
 				'$id' => array (
 					'GET' => 'user/view'
 				)
@@ -41,7 +42,7 @@ class Routing {
 				'$id' => array (
 					'GET' => 'problemset/view',
 					'edit' => array (
-						'GET' => 'problemset/view' //Bacckbone routing
+						'GET' => 'problemset/view' //Backbone routing
 					),
 					'stats' => array (
 						'GET' => 'problemset/stats'
@@ -51,12 +52,10 @@ class Routing {
 			'stats' => array (
 				'GET' => 'stats/view',
 			),
-			/*
-			 * 'signup' => array (
-			 *     'GET' => 'signup/view_form',
-			 *     'POST' => 'signup/process_from'
-			 * ),
-			 */
+			'signup' => array (
+			    'GET' => 'account/signup_input',
+			    'POST' => 'signup/process_from'
+			),
 			'login' => array (
 				'GET' => 'account/login_input',
 				'POST' => 'account/login_post'
@@ -105,7 +104,6 @@ class Routing {
 		self::$mapptr = null;
 
 		while( preg_match( '#^/?([^/]+)#', $url, $match ) ) {
-			// echo 'preoccessing '.$match[1]."\n";
 			if(! self::validateToken( $match[1] ) )
 				break;
 			$url = preg_replace( '#^/?(?:[^/]+)/?#', '', $url );
@@ -129,8 +127,6 @@ class Routing {
 			if( $url === '/' ) {
 				redirect302('/fa');
 			}
-		}
-		if( $action === false ) {
 			return false;
 		}
 		if( self::$params ) {
@@ -145,7 +141,7 @@ class Routing {
 		return false;
 	}
 
-	static private function setLocale( $lang, Context $ctx ) {
+	static public function setLocale( $lang, Context $ctx ) {
 		
 		switch( $lang ) {
 			case 'fa':
@@ -225,18 +221,48 @@ class Routing {
 		}
 	}
 
-}
+	static public function notFound( $env = null ) {
+		header('HTTP/1.1 404 Not Found');
+		if( is_null( $env ) )
+			die(<<<'EOC'
+<html>
+<head>
+<title>Not Found</title>
+</head>
+<body>
+<h1>The requested page doesn't exist</h1>
+<h2>or you shouldn't see it</h2>
+</h3>or it's my fault</h3>
+<h4>or ...</h4>
+<p>how are u?</p>
+</body>
+</html>
+EOC
+		);
+	
+		if(isset($_SESSION['locale']))
+			$env->setLocaleFormatter(new LocaleFormatter($_SESSION['locale']));
+		else
+			$env->setLocaleFormatter(new LocaleFormatter('en'));
 
-$action = Routing::route( $_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD'], $env );
-if( $action )
-	$env->setAction( $action );
-else
-	redirect404( $env );
+		if( $env->isHTML() ) {
+			$env->setLayout('error/404');
+			$env->setData('title', '404');
+		} else if ( $env->isJSON() ) {
+			$env->setHeaders();
+			dieJSON('E404');
+		}
+	}
 
-return;
+	static public function redirect( $destination ) {
+		header('HTTP/1.1 302 Found');
+		header('Location: '.URL_ROOT.$destination);
+		die();
+	}
 
-abstract class Routing
-{
+
+	// BELOW THIS LINE MOVED FROM ABSTRACT Routing, DON'T REMEMBER WHY WAS SEPARATED
+
 	/**
 	 * @brief map of urls
 	 **/
@@ -282,35 +308,65 @@ abstract class Routing
 	
 	static public function genURL( $to, $absolute=false )
 	{
+		global $env;
 		if ( isset(self::$url_map[$to] ) )
 			if ( true === $absolute )
-				return __url__.self::$url_map[$to];
+				return $env->locale()->name() . __url__.self::$url_map[$to];
 			else
-			    return self::$url_map[$to];
+			    return $env->locale()->name() . self::$url_map[$to];
 
 		throw new Exception( "$to is not defined in routing map");
 	}
 	
 	static public function genProc( $where )
 	{
+		global $env;
 		if ( isset(self::$proc_map[$where]) )
-			return 'to/'.$where;
+			return $env->locale()->name() . '/to/'.$where;
 		throw new Exception( "$where is not defined in process map");
 	}
 	
-	static public function toProc( $to )
+	static public function toProc( $to, $external = true )
 	{
+		global $env;
 		if ( isset(self::$proc_map[$to]) )
-			return self::$proc_map[$to];
+			$controller = self::$proc_map[$to][0];
+			if ( $external )
+				return $env->locale()->name() + $controller;
+			return $controller;
 		throw new Exception( "$to is not defined in process map");
 	}
 }
 
+function redirect302( $destination ) {
+	return Routing::redirect( $destination );
+}
+
+function redirect404( &$env = null ) {
+	return Routing::notFound( $env );
+}
+
+function issetted($var) {
+	return isset($var) ? $var : false;
+}
+
+
+$action = Routing::route( $_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD'], $env );
+if( $action )
+	$env->setAction( $action );
+else
+	// OLD ROUTING
+{
+	$matches = array();
+	$lang = preg_match('#^/?([^/]+)(.*)#', $_SERVER['REQUEST_URI'], $matches);
+	if (isset($matches[1]))
+		Routing::setLocale( $matches[1], $env );
+	$_SERVER['REQUEST_URI'] = $matches[2];
 
 // Dispatch json processors
 if ( preg_match( '#^/to/([a-zA-Z0-9_]+).*$#', $_SERVER['REQUEST_URI'], $m) )
 {
-	$to = Routing::toProc($m[1])[0];
+	$to = Routing::toProc($m[1], false);
 	if (! $to ) //It's not JSON
 	{
 // 		BUG
@@ -326,11 +382,6 @@ if ( preg_match( '#^/to/([a-zA-Z0-9_]+).*$#', $_SERVER['REQUEST_URI'], $m) )
 	die();
 }
 
-
-
-function issetted($var) {
-	return isset($var) ? $var : false;
-}
 
 if (isset($_REQUEST['red']))
 {
@@ -356,6 +407,7 @@ if( isset( $_REQUEST['sec'] ) ) {
 	return;
 }
 
+$req_path = null;
 @$inc = basename( $_SERVER['REQUEST_URI'] );
 if (isset($_REQUEST['show'])) $inc=$_REQUEST['show'];
 if (! is_null($inc) && ! empty($inc) && preg_match('#^/([a-zA-Z_0-9]+).*#', $_SERVER['REQUEST_URI'], $m) )
@@ -365,7 +417,7 @@ if (! is_null($inc) && ! empty($inc) && preg_match('#^/([a-zA-Z_0-9]+).*#', $_SE
 	    case 'signin':	$req_path="./forms/common/signin.php"; break;
 	    case 'home': $req_path="./layout/home.php"; break;
 	    case 'signup': $req_path="./forms/common/signup.php"; break;
-	    case 'signout': signOut(); header("Location: ".__url__); break;
+	    case 'signout': signOut(); Routing::redirect( "/" . $env->locale()->name() ); break;
 	    case 'help': $req_path="./static/F1.htm"; break;
 	    case "sgl":
 	    case "exercise": $env->setAction('exercise/view'); break;
@@ -403,18 +455,29 @@ if (! is_null($inc) && ! empty($inc) && preg_match('#^/([a-zA-Z_0-9]+).*#', $_SE
 		    if ( hasPrivilege('*') )
 				switch ($inc) {
 				       case "compiler": $req_path="./forms/common/compiler.php"; break;
-				       default:
-							$not_target.='*'; break;
-							break;
+				       default: $not_target.='*'; break;
 			       }
-			if ( ( $not_target == "sta" ) or empty( $req_path ) )
-				$req_path = './layout/main.php';
-	        break;
+
+			if ( ( $not_target == "sta*" ) or empty( $req_path ) )
+				/*
+				 * $req_path = './layout/main.php';
+				 *   break;
+				 */
+				 Routing::notFound( $env );
 	}
 }
-else {
-	if ( hasPrivilege("*") )
-		$req_path="./layout/home.php";
-	else
-		$req_path="./layout/main.php";
+/*
+ * } else {
+ *   
+ *   if ( hasPrivilege("*") )
+ *     $req_path="./layout/home.php";
+ *   else
+ *     $req_path="./layout/main.php";
+ * }
+ */
+
+if (!is_null($req_path))
+	$env->useLegacyRenderer($req_path);
+else
+	Routing::notFound( $env );
 }

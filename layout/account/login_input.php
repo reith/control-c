@@ -8,7 +8,6 @@ $captchaStyle="";
 if (!isset($_SESSION['failed_login']))
       $captchaStyle='style="display: none;"';
 ?>
-<script src='/script/login.js'></script>
   <form id='loginForm' action="<?=Routing::url('login')?>" method="post">
   <fieldset>
   <legend><?php echo _("Login"); ?></legend>
@@ -36,15 +35,13 @@ if (!isset($_SESSION['failed_login']))
 <div id="password_recovery_wrapper" style="margin-top: 20px; display: none;"><?php require __root__."/forms/common/password_recovery.php"; ?></div>
 
 <script type="text/javascript">
-
-
-$(document).ready(function () {
-login($('#loginForm'));
- $('#add_recovery_link').click(function () {
-        $('#add_recovery_link').remove();
-        $('#password_recovery_wrapper').show('slow');
+require(['jquery', 'lib/util/login'], function($, login) {
+  $(document).ready(function () {
+  login.sendForm($('#loginForm'));
+   $('#add_recovery_link').click(function () {
+          $('#add_recovery_link').remove();
+          $('#password_recovery_wrapper').show('slow');
+    });
   });
-    
 });
-
 </script>

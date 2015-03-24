@@ -15,7 +15,7 @@ SELECT
 		NOW()>`es`.`correctionDate` AS `checked`,
 	CONCAT(`t`.`firstName`, ' ', `t`.`lastName`) AS `teacherName`
 FROM
-	`exercise_seri` AS `es`, `course` AS `c`, `User` AS `t`
+	`exercise_seri` AS `es`, `course` AS `c`, `user` AS `t`
 WHERE
 	`es`.`id` = ? AND `c`.`id`=`es`.`course` AND `t`.`id`=`c`.`teacher`
 EOQ;
@@ -45,7 +45,7 @@ SELECT
 	`c`.`setsWageSum` AS `courseSetsWageSum`, NOW() > `p`.deadlineDate AS `expired`,
 	NOW() > `p`.checkDate AS `graded`
 FROM
-	`Problemset` AS `p`, `Course` AS `c`
+	`problemset` AS `p`, `course` AS `c`
 WHERE
 		`p`.`id` = ? AND `p`.course = `c`.id 	
 LIMIT 1
@@ -78,7 +78,7 @@ EOQ;
 
 	// Get problemset's exercises *mini* details
 	$problemset['exercise'] = array();
-	$stmt = $con->prepare('SELECT `id`, `title`, `wage`, `number` FROM `Exercise` WHERE `set` = ?');
+	$stmt = $con->prepare('SELECT `id`, `title`, `wage`, `number` FROM `exercise` WHERE `set` = ?');
 	$stmt->bindParam(1, $id, PDO::PARAM_INT);
 	$stmt->execute();
 
@@ -115,7 +115,7 @@ function get_problemset_exercises( $id ) {
  * @return array of exercise id as key and reusult from function as value
  */
 function for_exercise_in_problemset( $id, $function ) {
-	$query = 'SELECT `id` FROM `Exercise` WHERE `set` = ?';
+	$query = 'SELECT `id` FROM `exercise` WHERE `set` = ?';
 	$con = DB::instance();
 	$stmt = $con->prepare($query);
 	$stmt->bindParam(1, $id, PDO::PARAM_INT);

@@ -1,9 +1,10 @@
 <?php
 // PROCESS FOR TEACHER REFREASH VIEW COURSE
 
-require 'libcc/formating.php';
-require 'libcc/date.php';
-require 'libcc/db.class.php';
+require_once 'libcc/formating.php';
+require_once 'libcc/date.php';
+require_once 'libcc/db.class.php';
+require_once 'libcc/general.functions.php';
 
 signinFirst('t', true);
 
@@ -36,10 +37,10 @@ switch ($course)
 
 $output['th'] .= '<th>'._('Details').'</th>';
 $rowFormat = "";
-$query = "SELECT `es`.seri, `es`.createDate, `es`.deadlineDate, CONCAT( `u`.firstName, ' ', `u`.lastName ), `c`.name, `es`.`lock`,".
+$query = "SELECT `es`.number, `es`.createDate, `es`.deadlineDate, CONCAT( `u`.firstName, ' ', `u`.lastName ), `c`.name, `es`.`locked`,".
 ' IF (NOW() >`es`.deadlineDate, 1, 0) as `expire`, `es`.id , `e`.id, `e`.number'.
 ' FROM '.DB_EXERCISE_SERI_TABLE.' as `es`, '.DB_EXERCISE_TABLE.' as `e`, '.DB_COURSE_TABLE.' as `c`, '.DB_USER_TABLE.' as `u`'.
-' WHERE `es`.course=`c`.id AND `c`.teacher=`u`.id AND `e`.seri=`es`.id ';
+' WHERE `es`.course=`c`.id AND `c`.teacher=`u`.id AND `e`.set=`es`.id ';
 
 $qvars = array();
 switch ($course) {
@@ -59,7 +60,7 @@ $query.=" ORDER BY ";
 
 switch($sort) {
 	case "courseName": $query.="`c`.name"; break;
-	case "seriNum": $query.="`es`.seri"; break;
+	case "seriNum": $query.="`es`.number"; break;
 	case "teacherF": $query.="`u`.firstName"; break;
 	case "teacherL": $query.="`u`.lastName"; break;
 	case "cDate": $query.="`es`.createDate"; break;
@@ -94,9 +95,10 @@ if ( $stmt->execute() )
 		$row_count++;
 		$rowFormat = '';
 		if ($view=="single")
-			$rowFormat.="<td>".transNumber($row[9])."</td>";
+			$rowFormat.="<td>".$env->locale()->number($row[9])."</td>";
 
-		$rowFormat.="<td>".transNumber($row[0])."</td><td>".jalaliDate($row[1])."</td><td>".jalaliDate($row[2])."</td>";
+		$rowFormat.="<td>".$env->locale()->number($row[0])."</td><td>".
+			$env->locale()->date($row[1])."</td><td>".$env->locale()->date($row[2])."</td>";
 		//lock
 		$row[5]=$row[5]?"بسته":"باز";
 		//expire

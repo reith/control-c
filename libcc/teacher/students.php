@@ -1,8 +1,7 @@
 <?php
 // PROCESS FOR TEACHER REFREASH VIEW COURSE
 
-require "libcc/formating.php";
-require "libcc/date.php";
+require_once 'libcc/general.functions.php';
 
 signinFirst ('t', true);
 $output=array("count"=>0, "tr"=>array(), "th");
@@ -22,9 +21,9 @@ if ($dbRes=mysqlres('getCourseMembersList', "--sdd", $course, $sort, $order, $fr
     while($obj=$dbRes->fetch_object())
     {
       $r="";
-      $r.="<td>".transNumber($obj->number)."</td>".
-	     "<td>$obj->sName</td><td>$obj->cName</td><td>$obj->gradeAverage</td>";
-      $r.="<td><a href='".$profile_url."/$obj->sID'>نمایش</a></td>";
+      $r.="<td>".$env->locale()->number($obj->number)."</td>".
+	     "<td>$obj->sName</td><td>$obj->cName</td><td>".$env->locale()->number($obj->gradeAverage)."</td>";
+      $r.="<td><a href='".Routing::url('user/view', array('id' => $obj->sID))."'>نمایش</a></td>";
       $output["tr"][]=array('r'=>$r, 'id'=>$obj->sID, 'cid'=>$obj->cID);
     }
   }

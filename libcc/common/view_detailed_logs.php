@@ -1,8 +1,9 @@
 <?php
 //   REITH: PROCCESS STUDENT SIGNIN
-require_once "libcc/date.php";
+require_once "libcc/general.functions.php";
 require_once "libcc/formating.php";
 require_once 'libcc/db.class.php';
+require_once 'libcc/date.php';
 
 $student="";
 
@@ -52,7 +53,7 @@ while ($obj = $stmt->fetch(PDO::FETCH_OBJ) )
     $output['time']=$obj->time;
     $output['cheat']=$obj->cheat;
     $output['ex_num']=$obj->number;
-    $output['seri']=$obj->seri;
+    $output['seri']=$obj->set;
 
     $number=$obj->runtimeError;
     $i=1;
@@ -66,7 +67,7 @@ while ($obj = $stmt->fetch(PDO::FETCH_OBJ) )
   }
   else
   {
-    $output['time']=localeDate($obj->date, 'long');
+    $output['time']=localeDate($obj->date);
     $output['grade']=$obj->grade;
     $output['zip']=$obj->zip;
   }

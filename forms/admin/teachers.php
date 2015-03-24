@@ -1,6 +1,7 @@
 <!--REIHT: ADMINISTRATOR TEACHER MANAGEMENT-->
 <?php
-  if (!checkSignIn("a")) header("Location: ".$siteURL."?who=admin&go=signin");
+require_once 'libcc/general.functions.php';
+signinFirst('a');
 ?>
   <form action="javascript:sendForm('./admin.add.teacher.php', 'addFormChild');" method="post">
     <fieldset>

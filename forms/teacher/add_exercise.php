@@ -1,12 +1,13 @@
 <!--REITH: TEACHER ADD EXERCISE-->
 <?php
+  require_once 'libcc/general.functions.php';
   signInFirst('t');
 //   require "./config.php";
   if (!$con=newMySQLi())
     die('خطا در برقراری ارتباط با پایگاه داده');
 ?>
 <!-- Box... -->
-<script type="text/javascript" src="js/teacher.add_exercise"></script>
+<script type="text/javascript" src="script/teacher/add_exercise.js.php"></script>
 <script type="text/javascript">
 $(document).ready(function () {
   $('#f').submit(function(e){
@@ -41,7 +42,7 @@ if ($courseID == "" || $exerciseCount == "" || $deadlineDate == "" || $correctio
 //1. get seriCount,
 //2. validate ownership if course id, so don't join it to next query.
 
-($stmt=$con->prepare("SELECT  `seriCount` FROM `$dbCourseTable` WHERE `id`=? AND `teacher`=?")) || errorLogger("DB", $con->error, true);
+($stmt=$con->prepare("SELECT `seriCount` FROM `$dbCourseTable` WHERE `id`=? AND `teacher`=?")) || errorLogger("DB", $con->error, true);
 $stmt->bind_param("dd", $courseID, $_SESSION['id']);
 ($stmt->execute()) || errorLogger("DB", $stmt->error, true);
 $stmt->bind_result($seriCount);

@@ -10,7 +10,7 @@ SELECT
 	UNIX_TIMESTAMP()>`ps`.`deadlineDate` AS expired,
 	UNIX_TIMESTAMP()>`ps`.`checkDate` AS `graded`
 FROM
-	`Problemset` AS `ps`, `Exercise` AS `e`, `Course` AS `c`
+	`problemset` AS `ps`, `exercise` AS `e`, `course` AS `c`
 WHERE
 	`e`.`id` = ? AND `ps`.`id`=`e`.set AND `c`.id=`ps`.course
 EOQ;

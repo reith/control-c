@@ -1,26 +1,30 @@
 <?php
 /*
  * FIXIT: use bindColumns. id and other integer values treathed as string
+ * FIXIT: Js part really sent request with POST method but data is available
+ * URL so _POST is empty and _GET works!
  */
 
 if(! $env->isJSON()) {
-	redirect404($env);
+	Routing::notFound( $env );
 }
 
 require_once 'libcc/query.class.php';
 require_once 'libcc/db.class.php';
+require_once 'libcc/general.functions.php';
 
 $request_filter = array(
 	'courses' => array( 'filter' => FILTER_VALIDATE_INT, 'flags' => FILTER_FORCE_ARRAY ),
 	'keywords' => array( 'filter' => FILTER_CALLBACK, 'options' => 'trim' ),
-	'ge' => array( FILTER_VALIDATE_INT ),
-	'nge' => array( FILTER_VALIDATE_INT ),
-	'skt' => array( FILTER_VALIDATE_INT ),
-	'ske' => array( FILTER_VALIDATE_INT ),
-	'sort' => NULL
+	'ge' => FILTER_VALIDATE_INT,
+	'nge' => FILTER_VALIDATE_INT,
+	'skt' => FILTER_VALIDATE_INT,
+	'ske' => FILTER_VALIDATE_INT,
+	'sort' => NULL,
+	'from' => FILTER_VALIDATE_INT
 );
 
-$rd = filter_input_array( INPUT_POST, $request_filter );
+$rd = filter_input_array( INPUT_GET, $request_filter );
 if( !$rd || !isset( $rd['courses'][0] ) ) {
 	dieJSON(1, _('Select at least one course.') );
 }
@@ -35,9 +39,9 @@ $q->addSelect('`e`.number');
 $q->addSelect('`e`.explain');
 $q->addSelect('`c`.name');
 
-$q->addFrom('Exercise', 'e');
-$q->addFrom('Problemset', 'ps');
-$q->addFrom('Course', 'c');
+$q->addFrom(DB_EXERCISE_TABLE, 'e');
+$q->addFrom(DB_EXERCISE_SERI_TABLE, 'ps');
+$q->addFrom(DB_COURSE_TABLE, 'c');
 
 $q->addWhere('`e`.set = `ps`.id AND `ps`.course = `c`.id');
 
@@ -56,7 +60,7 @@ if( $rd['ge'] ^ $rd['nge'] ) {
 		$q->addWhere('AND `ps`.checkDate > UNIX_TIMESTAMP()');
 } else if(! ($rd['ge'] | $rd['nge']) ) {
 	dieJSON(1, _('You must select at graded or not graded exercises') );
-} //else we dont check grading status. It's selected.
+} // else we dont check grading status. It's selected.
 
 $KEYWORD_SEARCH = 0;
 if( isset( $rd['keywords']) && ( $rd['keywords'] !== "" )  ) {
@@ -87,7 +91,11 @@ switch( $rd['sort'] ) {
 	case 'et': $query.=' ORDER BY `e`.title'; break;
 	default: dieJSON( 'BADDATA' );
 }
-$query.=' Limit 5';
+
+$LIMIT=5;
+$START= empty($rd['from']) ? 0 : $rd['from'];
+$query.=" Limit $START, $LIMIT";
+
 $con = DB::instance();
 $stmt = $con->prepare($query);
 
@@ -107,8 +115,8 @@ while( $row = $stmt->fetch( PDO::FETCH_ASSOC ) ) {
 }
 
 $o['found_rows'] = DB::foundRows();
+$o['limit_rows'] = $LIMIT;
 
-$env->setContext( 'json' );
 $env->setHeaders();
 die(json_encode($o));
 ?>

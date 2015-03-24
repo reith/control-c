@@ -1,4 +1,4 @@
-define(['backbone'], function(Backbone) {
+define(['backbone', 'underscore'], function(Backbone, _) {
 	var View = Backbone.View.extend({
 		tagName: 'div',
 		className: 'tr-dir clickable',
@@ -11,7 +11,7 @@ define(['backbone'], function(Backbone) {
 				)
 			);
 			this.unselect();
-
+			return this;
 		},
 
 		events: {

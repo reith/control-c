@@ -1,5 +1,6 @@
 <?php
 //   REITH: PROCESS VERIFYING MEMBERSHIP, REMOVING MEMBERSHIP REQUESTS OR IGNOR
+require_once 'libcc/general.functions.php';
 signInFirst('t', true);
 // sig
 $query="";

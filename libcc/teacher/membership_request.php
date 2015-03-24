@@ -1,7 +1,7 @@
 <?php
 // REITH: PROCESS FOR REFREASH VIEW COURSE TEACHER'S FEATURE
+require_once 'libcc/general.functions.php';
 signinFirst('t', true);
-require_once "libcc/formating.php";
 
 $output=array("tr"=>array('id'=>array(), 'r'=>array())); 
 
@@ -19,7 +19,7 @@ if ($dbRes=mysqlres(getMembershipRequestsList, "s-sdd", $course, $sort, $order, 
   if ($output['count']=$dbRes->num_rows)
     while($row=$dbRes->fetch_row()){
       $output['tr']['id'][]=$row[0];
-      $output['tr']['r'][]="<td>".transNumber($row[0])."</td><td>$row[1]</td><td>".transNumber($row[2])."</td><td>$row[3]</td><td>$row[4]</td>";
+      $output['tr']['r'][]="<td>".$env->locale()->number($row[0])."</td><td>$row[1]</td><td>".$env->locale()->number($row[2])."</td><td>$row[3]</td><td>$row[4]</td>";
     }
 }
 

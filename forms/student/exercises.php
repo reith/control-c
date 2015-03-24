@@ -1,10 +1,12 @@
 <!--REITH: VIEW COURSE FOR STUDENTS-->
 <?php
+	require_once 'libcc/general.functions.php';
   signinFirst('s');
 ?>
 
-<script type="text/javascript" src="js/tableForm"></script>
-<script type="text/javascript" src="js/student.exercises"></script>
+<!-- <script type="text/javascript" src="/script/lib/util/tableForm.js"></script>
+-->
+<script type="text/javascript" src="/script/student/exercises.js.php"></script>
 
 <iframe name="if" id="if" style="display: none;">
 </iframe>
@@ -52,5 +54,12 @@
   <div class="error" id='res'></div>  
   </fieldset>
 </form>
+<?=jsConfig();?>
 
-<script type="text/javascript">buildStudentExercisesForm('stf', 'stm', '<?=Routing::genURL("seri")?>/', '<?=Routing::genURL("exercise")?>/', '<?=Routing::genURL("course")?>/', '<?=Routing::genProc('view_detailed_logs')?>', '<?=__url__?>/?prc=send_exercise', '<?=Routing::genProc('student_exercises')?>')</script>
+<script type="text/javascript">
+require(['lib/util/studentExercisesTable'], function(build) {
+	console.log('build', build);
+	build('stf', 'stm', '<?=Routing::url("problemset")?>/', '<?=Routing::url("exercise")?>/', '<?=Routing::url("course")?>/', '<?=Routing::genProc('view_detailed_logs')?>', '<?=__url__?>/?prc=send_exercise', '<?=Routing::genProc('student_exercises')?>')
+});
+
+</script>

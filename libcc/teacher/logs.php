@@ -1,8 +1,9 @@
 <?php
 
 $output=array("count"=>0, "tr"=>array()); 
-require "libcc/formating.php";
+require_once "libcc/formating.php";
 require_once "libcc/date.php";
+require_once "libcc/general.functions.php";
 
 signinFirst('t', true);
 

@@ -19,7 +19,7 @@ SELECT
 	`t`.id AS `teacher`, COUNT(`student`) AS `sc`, AVG(`gradeAverage`) AS `sag`,
 	MAX(`gradeAverage`) AS `smg`
 FROM
-	`Course` as `c`, `User` as `t`, `membership` AS `m`
+	`course` as `c`, `user` as `t`, `membership` AS `m`
 WHERE
 	`c`.id = ? AND `t`.id = `c`.teacher AND `m`.`course` = `c`.id AND `m`.`confirm` = 'j'
 LIMIT 1;
@@ -52,20 +52,13 @@ EOQ;
 	return $course;
 }
 
-
-function get_courses_names() {
-	$con = DB::instance();
-	$query = 'SELECT `id`, `name` FROM `Course`';
-	return $con->query( $query );
-}
-
 function get_top_students( $course_id ) {
 	$con = DB::instance();
 	$query = <<<'EOQ'
 SELECT
 	`m`.gradeAverage, `s`.id, `s`.username
 FROM
-	`User` AS `s`, `membership` AS `m`
+	`user` AS `s`, `membership` AS `m`
 WHERE
 	`m`.course = ? AND `m`.`student` = `s`.id
 ORDER BY `m`.gradeAverage DESC
@@ -84,7 +77,7 @@ function get_students_grades( $course_id ) {
 SELECT
 	`m`.gradeAverage
 FROM
-	`User` AS `s`, `membership` AS `m`
+	`user` AS `s`, `membership` AS `m`
 WHERE
 	`m`.course = ? AND `m`.`student` = `s`.id AND `m`.`confirm` = 'j';
 EOQ;
@@ -92,5 +85,64 @@ EOQ;
 	$stmt->bindParam(1, $course_id, PDO::PARAM_INT );
 	$stmt->execute();
 	return $stmt->execute() ? $stmt : false;
+}
+
+class Course {
+	private $id;
+	private $name;
+	private $teacher_id;
+	private $language;
+	private $teacher_name;
+
+	/*
+	 * [> object to table mapping <]
+   * static mapping = new array (
+	 *   'id' => 'id',
+	 *   'name' => 'name',
+	 *   'language' => 'language',
+	 *   'teacher_id' => 'teacher'
+	 * );
+	 */
+
+	public function __construct(int $id, string $name, string $language, int $teacher_id) {
+		$this->id = id;
+		$this->name = name;
+		$this->language = language;
+		$this->teacher_id = teacher_id;
+	}
+
+	public function getId() {
+		return id;
+	}
+
+	public function getName() {
+		return name;
+	}
+
+	public function getTeacherId() {
+		return teacher_id;
+	}
+
+	public function getTeacherName() {
+		return teacher_name;
+	}
+
+	static public function queryAllSummaryAsRows() {
+		return DB::instance()->query("SELECT `c`.* from `" . DB_COURSE_TABLE . "` as `c` ")->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	static public function queryAll() {
+		$result = Array();
+		$query = "SELECT `c`.* from  `". DB_COURSE_TABLE . "` as `c`";
+		$stmt = DB::instance()->query($query);
+		forEach ($stmt->fetchAll() as $row) {
+			$result[] = self::fromDBRow($row);
+		}
+		return $result;
+	}
+
+	static public function fromDBRow(array $row) {
+		return new Course((int)$row['id'], $row['name'], $row['language'], (int)$row['teacher']);
+	}
 }
 ?>

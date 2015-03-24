@@ -4,6 +4,7 @@
 require_once 'libcc/formating.php';
 require_once 'libcc/date.php';
 require_once 'libcc/error_codes.php';
+require_once 'libcc/general.functions.php';
 
 signinFirst('s', true);
 
@@ -40,9 +41,9 @@ if (($dbRes=mysqlres('getStudentExercisesList', '---s-sdd', $view, $solved, $exp
      switch ($view)
      {
 	case 'seri': $row=array('id'=>$id, 'seri'=>$obj->seri, 'name'=>$obj->name, 'cid'=>$obj->cid,
-        'cdate'=>localeDate($obj->createDate), 'ddate'=>localeDate($obj->deadlineDate), 'expire'=>$expire, 'sid'=>$obj->seriID); break;
+        'cdate'=>$env->locale()->date($obj->createDate), 'ddate'=>$env->locale()->date($obj->deadlineDate), 'expire'=>$expire, 'sid'=>$obj->seriID); break;
 	case 'single': $row=array('id'=>$id, 'seri'=>$obj->seri, 'number'=>$obj->number, 'name'=>$obj->name, 'cid'=>$obj->cid,
-        'cdate'=>localeDate($obj->createDate), 'ddate'=>localeDate($obj->deadlineDate), 'expire'=>$expire, 'sid'=>$obj->seriID); break;
+        'cdate'=>$env->locale()->date($obj->createDate), 'ddate'=>$env->locale()->date($obj->deadlineDate), 'expire'=>$expire, 'sid'=>$obj->seriID); break;
      }
      $output['tr'][]=array('r'=>$row, 's'=>$obj->suID, 'g'=>$obj->seriGrade, 'e'=>$obj->expire, 'id'=>$id, 'm'=>$obj->confirm, 'c'=>$obj->check);
     }

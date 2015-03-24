@@ -115,5 +115,4 @@
     if ( ($file != '..') and ($file != '.') )
       unlink ($dirname.'/'.$file);
   rmdir($dirname);
-  
 ?>

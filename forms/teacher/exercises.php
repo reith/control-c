@@ -1,11 +1,11 @@
   <!--REITH:
   this panel shows teacher seri exercises.-->
 <?php
+	require_once 'libcc/general.functions.php';
   signInFirst("t");
   $errors="";
 ?>
 
-<script type="text/javascript" src="js/tableForm"></script>
 <link rel="alternate stylesheet" type="text/css" media="all" href="<?=__jalcal_url__?>/skins/calendar-green.css" title="green" />
 <script type="text/javascript" src="<?=__jalcal_url__?>/jalali.js"></script>
 <script type="text/javascript" src="<?=__jalcal_url__?>/calendar.js"></script>
@@ -23,10 +23,9 @@
   }
   if (oldLink) oldLink.style.fontWeight = 'normal';
   oldLink = link;
-  link.style.fontWeight = 'bold';
+  if (link.style) link.style.fontWeight = 'bold';
   return false;
 }
-setActiveStyleSheet(this, 'green');
 </script>
 <?php
 $listCoursesQuery="SELECT `id`, `name` FROM `$dbCourseTable` WHERE teacher='{$_SESSION['id']}'";
@@ -92,7 +91,8 @@ $listCoursesQuery.=";";
 else	//don't show all courses
   $listCoursesQuery.=" AND id='{$_GET['addto']}';"
 ?>
-<form action="/add_exercise" method="POST" >
+
+<form action="/<?=$env->locale()->name(); ?>/add_exercise" method="POST" >
   <fieldset>
     <legend>اضافه کردن سری تمرین</legend>
     <label>درس: </label>
@@ -148,23 +148,25 @@ if (!empty($errors))
   "./home");
 ?>
 <script type="text/javascript">
-TableForm.prototype.customOperations = function() {
-  var tjson=this.json;
-  $.each(tjson.tr, function(i,tr) {
-    $('<tr />').html(tr.r).click(function(){
-      $('#courseId').val(tr.id);
-    }).appendTo('#tableMonitor');
-  });
-};
+require(['jquery', 'lib/util/tableForm'], function($, TableForm) {
+	TableForm.prototype.customOperations = function() {
+		var tjson=this.json;
+		$.each(tjson.tr, function(i,tr) {
+			$('<tr />').html(tr.r).click(function(){
+				$('#courseId').val(tr.id);
+			}).appendTo('#tableMonitor');
+		});
+	};
 
-$(document).ready(function(){
-  retrieveTabe = new TableForm('tableForm', 'tableMonitor', $('#nldlg'));
-  $('#tableForm').submit(function(e){
-    retrieveTabe.submitForm(e, '<?=Routing::genProc('teacher_exercises')?>', '#tableForm');
-  });
-//   $('#sendFileForm').hide();
+	$(document).ready(function(){
+		setActiveStyleSheet(this, 'green');
+		retrieveTabe = new TableForm('tableForm', 'tableMonitor', $('#nldlg'));
+		$('#tableForm').submit(function(e){
+			retrieveTabe.submitForm(e, '<?=Routing::genProc('teacher_exercises')?>', '#tableForm');
+		});
 
-  //show new exercises
-  $('#tableForm').trigger('submit');
+		//show new exercises
+		$('#tableForm').trigger('submit');
+	});
 });
 </script>

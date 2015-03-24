@@ -2,10 +2,10 @@
 require_once 'libcc/db.class.php';
 require 'libcc/account.php';
 require 'libcc/captcha/lib.php';
-
+require_once 'libcc/general.functions.php';
 
 $rdfilter = array(
-	'un' => array( 'filter'=>FILTER_CALLBACK, options=>'trim' ),
+	'un' => array( 'filter'=>FILTER_CALLBACK, 'options'=>'trim' ),
 	'pw' => null,
 	'captcha' => null
 );
@@ -74,7 +74,7 @@ global $error, $dbUserTable, $md5key, $siteURL, $privilege;
   $_SESSION['gp']=$_SESSION['prv'][0];
 
 
-  $output['go'] = isset ($_SESSION['go']) ? $_SESSION['go'] : "$siteURL/home";
+  $output['go'] = isset ($_SESSION['go']) ? $_SESSION['go'] : Routing::genURL( "home" );
   unset($_SESSION['go']);
   
   $output['error']=$error;

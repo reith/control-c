@@ -1,9 +1,10 @@
 	<!--REITH:
 	this panel shows teacher or all courses.-->
 <?php
+	require_once 'libcc/general.functions.php';
 	signinFirst('t');
 ?>
-<script type="text/javascript" src="js/tableForm"></script>
+<script type="text/javascript" src="script/TableForm.js.php"></script>
 <form id="tableForm">
   <fieldset>
     <legend>نمایش دروس</legend>
@@ -17,7 +18,6 @@
 	<option value="name" selected="1">نام درس</option>
 	<option value="teacherF">نام استاد</option>
 	<option value="teacherL">فامیل استاد</option>
-	<option value="year">سال</option>
 	<option value="lock">وضعیت</option>
     </select>
     <label> به صورت </label>

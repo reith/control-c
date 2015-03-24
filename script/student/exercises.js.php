@@ -49,10 +49,10 @@ var buildStudentExercisesForm = function (form, table, seri_url, exercise_url, c
 
     $.each(tjson.tr, function(i,tr) {
 	(tjson.type=='single') ?
-	$('<tr/>').html('<td>'+Locale.digit(tr.r.id)+'</td><td><a href="'+seri_url+tr.r.sid+'">'+Locale.digit(tr.r.seri)+'</a></td><td><a href="'+exercise_url+tr.r.id+'">'
-	  +Locale.digit(tr.r.number)+'</a></td><td><a href="'+course_url+tr.r.cid+'">'+tr.r.name+'</a></td><td>'+tr.r.cdate+'</td><td>'+tr.r.ddate+'</td><td>'+tr.r.expire+'</td>').data('r',tr).appendTo('#'+table)
+	$('<tr/>').html('<td>'+Locale._number(tr.r.id)+'</td><td><a href="'+seri_url+tr.r.sid+'">'+Locale._number(tr.r.seri)+'</a></td><td><a href="'+exercise_url+tr.r.id+'">'
+	  +Locale._number(tr.r.number)+'</a></td><td><a href="'+course_url+tr.r.cid+'">'+tr.r.name+'</a></td><td>'+tr.r.cdate+'</td><td>'+tr.r.ddate+'</td><td>'+tr.r.expire+'</td>').data('r',tr).appendTo('#'+table)
 	:
-	$('<tr/>').html('<td>'+Locale.digit(tr.r.id)+'</td><td><a href="'+seri_url+tr.r.sid+'">'+Locale.digit(tr.r.seri)+'</a></td><td><a href="'+course_url+tr.r.cid+'">'+tr.r.name+'</a></td><td>'
+	$('<tr/>').html('<td>'+Locale._number(tr.r.id)+'</td><td><a href="'+seri_url+tr.r.sid+'">'+Locale._number(tr.r.seri)+'</a></td><td><a href="'+course_url+tr.r.cid+'">'+tr.r.name+'</a></td><td>'
 	  +tr.r.cdate+'</td><td>'+tr.r.ddate+'</td><td>'+tr.r.expire+'</td>\n').data('r',tr).appendTo('#'+table);
     });
 

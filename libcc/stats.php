@@ -82,19 +82,19 @@ abstract class EntityCount {
 }
 
 final class CourseCount extends EntityCount {
-	protected $name = 'Course';
+	protected $name = DB_COURSE_TABLE;
 }
 
 final class ExerciseCount extends EntityCount {
-	protected $name = 'Exercise';
+	protected $name = DB_EXERCISE_TABLE;
 }
 
 final class ProblemsetCount extends EntityCount {
-	protected $name = 'Problemset';
+	protected $name = DB_EXERCISE_SERI_TABLE;
 }
 
 final class UserCount extends EntityCount {
-	protected $name = 'User';
+	protected $name = DB_USER_TABLE;
 }
 
 ?>

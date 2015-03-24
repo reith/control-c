@@ -11,6 +11,7 @@ define(['jquery', 'backbone', 'i18n!nls/dict', 'i18n!nls/formatters'], function(
 			this.$links = $('<ul/>');
 			if(this.model.signedin()) {
 				this.appendProfileLink();
+				this.appendSignoutLink();
 			} else {
 				this.appendSigninLink();
 				this.appendRegisterLink();
@@ -42,12 +43,14 @@ define(['jquery', 'backbone', 'i18n!nls/dict', 'i18n!nls/formatters'], function(
 			});
 			this.updateTime();
 
-			this.delegateEvents({
-				'click #signin': function(event) {
-					event.preventDefault();
-					this.showSigininForm();
-				}
-			});
+			/*
+			 * this.delegateEvents({
+			 *   'click #signin': function(event) {
+			 *     event.preventDefault();
+			 *     this.showSigininForm();
+			 *   }
+			 * });
+			 */
 			return this;
 		},
 
@@ -71,15 +74,19 @@ define(['jquery', 'backbone', 'i18n!nls/dict', 'i18n!nls/formatters'], function(
 		},
 
 		appendProfileLink: function() {
-			this.addToList('<a href="/user/'+this.model.get('userid')+'">'+this.model.get('username')+'</a>');
+			this.addToList('<a href="/' + App.env.locale + '/user/'+this.model.get('userid')+'">'+this.model.get('username')+'</a>');
 		},
 
 		appendRegisterLink: function() {
-			this.addToList('<a href="/signup">' + Dict.rgs + '</a>');
+			this.addToList('<a href="' + App.env.locale + '/signup">' + Dict.rgs + '</a>');
 		},
 
 		appendSigninLink: function() {
-			this.addToList('<a id="signin" href="/siginin">' + Dict.sgin + '</a>');
+			this.addToList('<a id="signin" href="/' + App.env.locale + '/login">' + Dict.sgin + '</a>');
+		},
+
+		appendSignoutLink: function() {
+			this.addToList($('<a/>').attr('href', '/' + App.env.locale + '/signout').text(Dict.sgot));
 		}
 	});
 

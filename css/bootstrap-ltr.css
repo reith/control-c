@@ -3370,7 +3370,6 @@ header #serverTime {
   margin: 2px 20px 0px;
 }
 #alert {
-  position: fixed;
   text-align: center;
   z-index: 9;
   width: 100%;
@@ -3378,6 +3377,7 @@ header #serverTime {
   top: 0px;
   left: 0px;
   background-color: red;
+  margin-top: 60px;
 }
 #loading {
   position: fixed;

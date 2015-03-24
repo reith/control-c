@@ -8,8 +8,8 @@ function(Backbone, _, Template, Dictionary) {
 		render: function() {
 			this.$el.html( _.gtemplate(Template, this.model.toJSON(), Dictionary)  );
 			this.chooseButtonsPlaceHolder();
-			this.$buttonSet.append('<a class="btn">Course Exercises</a>')
-				.append('<a class="btn">Problemsets</a>');
+			$('<a/>').attr('href', '/' + App.env.locale + '/exercise/search?auto_search=1&course=' + this.model.get('id'))
+				.addClass('btn').addClass('btn-success').text(Dictionary['fce']).appendTo(this.$buttonSet);
 			return this;
 		},
 

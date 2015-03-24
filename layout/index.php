@@ -16,7 +16,7 @@
 <li><?=_('Easy reporting and charting')?></li>
 </ul>
 
-<a class="btn btn-mini btn-success" href="http://12eith.com/code/%5EC/">
+<a class="btn btn-mini btn-success" href="http://www.reith.ir/code/%5EC/">
 <?=_('More about ^C')?></a>
 </div>
 

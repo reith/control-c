@@ -1,4 +1,5 @@
 <?php
+require_once 'libcc/general.functions.php';
 signinFirst('s', true);
 
 require_once 'libcc/db.class.php';

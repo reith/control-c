@@ -7,6 +7,7 @@ class Context
 	private $layout;
 	private $content; // output buffer
 	private $localeFormatter;
+	private $legacy_rendering = false;
 	private $_GET = array();
 
 	public function __construct( $context ) {
@@ -97,5 +98,14 @@ class Context
 
 	public function getAction() {
 		return $this->action;
+	}
+
+	public function useLegacyRenderer( $layout ) {
+		$this->legacy_rendering = true;
+		$this->layout = $layout;
+	}
+
+	public function isLegacy() {
+		return $this->legacy_rendering;
 	}
 }

@@ -12,8 +12,6 @@ elseif(!empty($errors))
 else
 {
 ?>
-  <script type="text/javascript" src="js/tableForm"></script>
-  <script type="text/javascript" src="js/teacher.membership_requests"></script>
   <form id="tableForm" action="<?=Routing::genProc('teacher_membership_requests')?>">
 	<input type='hidden' id='vm_action' value='<?=Routing::genProc('teacher_verify_membership')?>' />
     <fieldset>
@@ -50,4 +48,22 @@ else
   </fieldset>
 </form>
 
+<script type="text/javascript">
+require(['jquery', 'lib/util/tableForm', 'lib/util/teacherMembershipRequests'], function($, TableForm, clbks) {
+$(document).ready(function () {
+  var retrieveTabe = new TableForm('tableForm', 'tableMonitor');
+  $("#tableForm").submit(function(e) {
+    e.preventDefault();
+    retrieveTabe.submitForm(e, $('#tableForm').attr('action'), "#tableForm");
+  });
+  $('#manageBox').submit(function(e) {
+    e.preventDefault();
+    $.ajax ({type: 'POST', cache: false, dataType:'json', url: $('#vm_action').val(),
+	    data: $('#manageBox').serialize(),
+	    success: function(j) {return clbks.receive(j);}
+	    });
+  });
+});
+});
+</script>
 <?php } ?>

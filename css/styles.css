@@ -128,7 +128,6 @@ a:hover
 
 #alert
 {
-    position: fixed;
     text-align: center;
     z-index: 9;
     width: 100%;

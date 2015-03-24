@@ -1,8 +1,9 @@
 <!-- REITH: SHOWS HOMEWORK LOGS TO TEACHERS -->
 <?php
+	require_once 'libcc/general.functions.php';
   signinFirst('t');
 ?>
-<script type="text/javascript" src="js/tableForm"></script>
+<script type="text/javascript" src="script/TableForm.js.php"></script>
 <form id="tableForm" name="amir">
   <fieldset>
     <label>نتایج</label>

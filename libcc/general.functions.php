@@ -180,11 +180,11 @@ function getCoursesList ($view, $sort, $order, $from, $limit) {
   global $errors, $badRequest, $dbUserTable, $dbCourseTable, $dbMembershipTable;
   //FIXED
 
-  $query="SELECT `c`.`id`, `c`.`name`, CONCAT(`u`.firstName, ' ', `u`.lastName), `c`.`year`, `c`.`lock`, `u`.id FROM `$dbCourseTable` as `c`, `$dbUserTable` as `u`";
+  $query="SELECT `c`.`id`, `c`.`name`, CONCAT(`u`.firstName, ' ', `u`.lastName), `c`.createDate, `c`.`locked`, `u`.id FROM `$dbCourseTable` as `c`, `$dbUserTable` as `u`";
   if ($_SESSION['gp']=="s")
     switch($view) {
-    case "all": $query ="SELECT `c`.`id`, `c`.`name`, CONCAT(`u`.firstName, ' ', `u`.lastName), `c`.`year`, `c`.`lock`, ".
-                  "`m`.confirm, `u`.id ".
+    case "all": $query ="SELECT `c`.`id`, `c`.`name`, CONCAT(`u`.firstName, ' ', `u`.lastName), `c`.createDate, `c`.`locked`, ".
+                  "`u`.id, `m`.confirm ".
                   "FROM `$dbCourseTable` as `c` LEFT JOIN $dbMembershipTable as `m` ON `m`.course=`c`.id AND `m`.student='{$_SESSION['id']}',".
 		  " `$dbUserTable` as `u` WHERE `u`.id=`c`.teacher"; break;
     case "reg": $query.=",`$dbMembershipTable` as `m` WHERE `u`.id=`c`.teacher AND `m`.`student`= '{$_SESSION['id']}'".
@@ -212,8 +212,7 @@ function getCoursesList ($view, $sort, $order, $from, $limit) {
     case "name": $query.="`c`.name"; break;
     case "teacherF": $query.="`u`.firstName"; break;
     case "teacherL": $query.="`u`.lastName"; break;
-    case "year": $query.="`c`.year"; break;
-    case "lock": $query.="`c`.lock"; break;
+    case "lock": $query.="`c`.locked"; break;
     default: $badRequest=true;
   }
   
@@ -264,12 +263,12 @@ function getLogsList ($view, $course, $sort, $order, $from, $limit)
 
   //DANGER: $_SESSION['gp] needs another mechanism!
   switch ($_SESSION['gp']) {
-  case 't': $query="SELECT `es`.id AS `seriId`, `e`.id AS `exerciseId`, `e`.number, `u`.id AS `studentId`, CONCAT(`u`.firstName, ' ', `u`.lastName) AS  studentName, `c`.name AS `courseName`, `es`.seri AS `seriNum`".
+  case 't': $query="SELECT `es`.id AS `seriId`, `e`.id AS `exerciseId`, `e`.number, `u`.id AS `studentId`, CONCAT(`u`.firstName, ' ', `u`.lastName) AS  studentName, `c`.name AS `courseName`, `es`.number AS `seriNum`".
   " FROM `$dbStudentUploadTable` AS `su`, `$dbExerciseTable` AS `e`, `$dbExerciseSeriTable` AS `es`, `$dbCourseTable` AS `c`, `$dbUserTable` AS `u`, `$dbMembershipTable` AS `m`".
-  " WHERE `es`.id=`e`.seri AND `es`.course=`c`.id AND `c`.teacher='{$_SESSION['id']}' AND `m`.student=`u`.id AND `m`.course=`c`.id AND `m`.confirm='j' AND `su`.student=`m`.student AND `su`.seri=`es`.id "; break;
-  case 's': $query="SELECT `es`.id AS `seriId`, `e`.id AS `exerciseId`, `e`.number, `s`.id AS `studentId`, `c`.name AS `courseName`, `es`.seri AS `seriNum`".
+  " WHERE `es`.id=`e`.set AND `es`.course=`c`.id AND `c`.teacher='{$_SESSION['id']}' AND `m`.student=`u`.id AND `m`.course=`c`.id AND `m`.confirm='j' AND `su`.student=`m`.student AND `su`.seri=`es`.id "; break;
+  case 's': $query="SELECT `es`.id AS `seriId`, `e`.id AS `exerciseId`, `e`.number, `s`.id AS `studentId`, `c`.name AS `courseName`, `es`.number AS `seriNum`".
   " FROM `$dbExerciseTable` AS `e`, `$dbExerciseSeriTable` AS `es`, `$dbCourseTable` AS `c` `$dbMembershipTable` AS `m`".
-  " WHERE `es`.id=`e`.seri AND `es`.course=`c`.id AND `es`.student='{$_SESSION['id']}' AND `e`.student='{$_SESSION['id']}' AND `m`.student=`s`.id AND `m`.course=`c`.id AND `m`.confirm='j'"; break;
+  " WHERE `es`.id=`e`.set AND `es`.course=`c`.id AND `es`.student='{$_SESSION['id']}' AND `e`.student='{$_SESSION['id']}' AND `m`.student=`s`.id AND `m`.course=`c`.id AND `m`.confirm='j'"; break;
   };
 
   if ($course!="all")
@@ -288,7 +287,7 @@ function getLogsList ($view, $course, $sort, $order, $from, $limit)
     case "studentF": $query.="`u`.firstName"; break;
     case "studentL": $query.="`u`.lastName"; break;
     case "courseName": $query.="`c`.name"; break;
-    case "seriNum": $query.="`es`.seri"; break;
+    case "seriNum": $query.="`es`.number"; break;
     default: $badRequest=true;
   }
   $query.=" $order LIMIT $from , $limit;";
@@ -374,13 +373,13 @@ function getStudentExercisesList ($view, $solved, $expired, $course, $sort, $ord
 {
   global $badRequest, $dbExerciseSeriTable, $dbMembershipTable, $dbExerciseTable, $dbCourseTable, $dbStudentUploadTable;
   $query="";
-  $query="SELECT `es`.seri, `c`.name, `es`.createDate, `es`.deadlineDate, `es`.correctionDate, IF (NOW() >`es`.deadlineDate, 1, 0) as `expire`, ".
-	 "IF (NOW() >`es`.correctionDate, 1, 0) as `check` , `es`.`lock`, `es`.id AS seriID, `e`.id AS exID, `e`.number, `su`.grade as `seriGrade`, ".
+  $query="SELECT `es`.number as `seri`, `c`.name, `es`.createDate, `es`.deadlineDate, `es`.checkDate, IF (NOW() >`es`.deadlineDate, 1, 0) as `expire`, ".
+	 "IF (NOW() >`es`.checkDate, 1, 0) as `check` , `es`.`locked`, `es`.id AS seriID, `e`.id AS exID, `e`.number, `su`.grade as `seriGrade`, ".
 	 "`su`.id AS suID, `su`.date as `sentDate`, `m`.confirm, `c`.id AS `cid` ".
-	 "FROM `$dbExerciseTable` as `e` LEFT JOIN `$dbStudentUploadTable` as `su` ON `su`.student='{$_SESSION['id']}' AND `e`.seri=`su`.seri, ".
+	 "FROM `$dbExerciseTable` as `e` LEFT JOIN `$dbStudentUploadTable` as `su` ON `su`.student='{$_SESSION['id']}' AND `e`.set=`su`.seri, ".
 	 "`$dbCourseTable` as `c` LEFT JOIN `$dbMembershipTable` as `m` ON `m`.student='{$_SESSION['id']}' AND `m`.course=`c`.id, ".
 	 "`$dbExerciseSeriTable` as `es` ".
-	 "WHERE `es`.id=`e`.seri AND `es`.course=`c`.id ";
+	 "WHERE `es`.id=`e`.set AND `es`.course=`c`.id ";
 
   switch ($course)
   {
@@ -414,7 +413,7 @@ function getStudentExercisesList ($view, $solved, $expired, $course, $sort, $ord
   switch($sort)
   {
       case "cName": $query.="`c`.name"; break;
-      case "eSeri": $query.="`es`.seri"; break;
+      case "eSeri": $query.="`es`.number"; break;
       case "cDate": $query.="`es`.createDate"; break;
       case "dDate": $query.="`es`.deadlineDate"; break;
       case "expired": $query.="expire"; break;
@@ -564,57 +563,14 @@ function signInFirst( $who=null, $post=false )
     else
     {
         $_SESSION['go']=$siteURL.$_SERVER['REQUEST_URI'];
-        header("Location: $siteURL/signin");
+        header("Location: " . Routing::url( "login" ));
     }
       
   }
 
 }
 
-function redirect404( &$env = null )
-{
-	
-    header('HTTP/1.1 404 Not Found');
 
-	if( is_null( $env ) )
-    	die(<<<'EOC'
-<html>
-<head>
-<title>Not Found</title>
-</head>
-<body>
-<h1>The requested page doesn't exist</h1>
-<h2>or you shouldn't see it</h2>
-</h3>or it's my fault</h3>
-<h4>or ...</h4>
-<p>how are u?</p>
-</body>
-</html>
-EOC
-);
-	
-	if(isset($_SESSION['locale']))
-		$env->setLocaleFormatter(new LocaleFormatter($_SESSION['locale']));
-	else
-		$env->setLocaleFormatter(new LocaleFormatter('en'));
-
-	if( $env->isHTML() ) {
-		$env->setLayout('error/404');
-		$env->setData('title', '404');
-	}
-	else if ( $env->isJSON() ) {
-		$env->setHeaders();
-		dieJSON('E404');
-	}
-
-	
-}
-
-function redirect302( $destination ) {
-	header('HTTP/1.1 302 Found');
-	header('Location: '.URL_ROOT.$destination);
-	die();
-};
 
 function url ($type, $id)
 {
@@ -628,8 +584,12 @@ function url ($type, $id)
 
 function jsConfig ( $retOrCfg = false )
 {
-  $cfg = array('url'=>__url__, 'course_url'=> __url__.'/course', 'exercise_url'=>__url__.'/exercise', 'profile_url'=>__url__.'/profile',
-	    'seri_url'=>__url__.'/seri');
+  $cfg = array('url'=>__url__,
+		'course_url' => Routing::url('course'),
+		'exercise_url' => Routing::url('exercise'),
+		'profile_url' => Routing::url('user'),
+		'seri_url' => Routing::url('problemset')
+	);
 
   if ( is_array($retOrCfg) )
   {
